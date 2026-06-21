@@ -1,0 +1,148 @@
+aid: shipday
+url: https://raw.githubusercontent.com/api-evangelist/shipday/refs/heads/main/apis.yml
+name: Shipday
+kind: company
+description: Shipday is a local delivery management platform for restaurants, retailers,
+  and on-demand businesses. Its REST API lets you create and track delivery and pickup
+  orders, manage drivers (carriers), assign orders to your own fleet, and tap a network
+  of on-demand delivery providers (Uber, DoorDash) for last-mile fulfillment, with
+  webhooks for real-time order and driver-location updates.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Delivery
+- Logistics
+- Last Mile
+- Local Delivery
+- Dispatch
+created: '2026-06-21'
+modified: '2026-06-21'
+specificationVersion: '0.19'
+apis:
+- aid: shipday:orders
+  name: Shipday Orders API
+  tags:
+  - Orders
+  - Deliveries
+  - Pickup
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.shipday.com/reference/shipday-api
+  baseURL: https://api.shipday.com
+  properties:
+  - url: https://docs.shipday.com/reference/insert-delivery-order
+    type: Documentation
+  - url: https://docs.shipday.com/reference/shipday-api
+    type: APIReference
+  - url: openapi/shipday-openapi.yml
+    type: OpenAPI
+  - url: collections/shipday.postman_collection.json
+    type: PostmanCollection
+  - url: collections/shipday.opencollection.json
+    type: OpenCollection
+  description: Create, list, edit, and delete delivery and pickup orders. Insert a
+    delivery order with customer, restaurant/pickup, and cost details; retrieve active
+    orders; edit an existing order by ID; and manage pickup orders.
+- aid: shipday:drivers-carriers
+  name: Shipday Drivers / Carriers API
+  tags:
+  - Drivers
+  - Carriers
+  - Fleet
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.shipday.com/reference/add-a-carrier-1
+  baseURL: https://api.shipday.com
+  properties:
+  - url: https://docs.shipday.com/reference/add-a-carrier-1
+    type: Documentation
+  - url: https://docs.shipday.com/reference/retrieve-carriers
+    type: APIReference
+  - url: openapi/shipday-openapi.yml
+    type: OpenAPI
+  - url: collections/shipday.postman_collection.json
+    type: PostmanCollection
+  - url: collections/shipday.opencollection.json
+    type: OpenCollection
+  description: Add carriers (drivers) to your account, retrieve your carrier roster,
+    and remove carriers. Adding a carrier returns an auto-generated password for the
+    driver app login.
+- aid: shipday:order-assignment
+  name: Shipday Order Assignment API
+  tags:
+  - Assignment
+  - Dispatch
+  - Drivers
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.shipday.com/reference/assign-order
+  baseURL: https://api.shipday.com
+  properties:
+  - url: https://docs.shipday.com/reference/assign-order
+    type: Documentation
+  - url: https://docs.shipday.com/reference/unassign-order-from-driver-1
+    type: APIReference
+  - url: openapi/shipday-openapi.yml
+    type: OpenAPI
+  - url: collections/shipday.postman_collection.json
+    type: PostmanCollection
+  - url: collections/shipday.opencollection.json
+    type: OpenCollection
+  description: Assign an order to a specific carrier in your own fleet by order ID
+    and carrier ID, and unassign an order from a driver when dispatch changes.
+- aid: shipday:on-demand-delivery
+  name: Shipday On-Demand Delivery API
+  tags:
+  - On-Demand
+  - Uber
+  - DoorDash
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.shipday.com/reference/availability-1
+  baseURL: https://api.shipday.com
+  properties:
+  - url: https://docs.shipday.com/reference/availability-1
+    type: Documentation
+  - url: https://docs.shipday.com/reference/assign
+    type: APIReference
+  - url: openapi/shipday-openapi.yml
+    type: OpenAPI
+  - url: collections/shipday.postman_collection.json
+    type: PostmanCollection
+  - url: collections/shipday.opencollection.json
+    type: OpenCollection
+  description: Check on-demand delivery availability and pricing across third-party
+    networks (DoorDash, Uber) for a pickup/delivery pair, then assign the order to
+    a chosen provider for last-mile fulfillment.
+- aid: shipday:webhooks
+  name: Shipday Webhooks API
+  tags:
+  - Webhooks
+  - Events
+  - Tracking
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.shipday.com/reference/order-status-update-2
+  baseURL: https://api.shipday.com
+  properties:
+  - url: https://docs.shipday.com/reference/order-status-update-2
+    type: Documentation
+  - url: https://docs.shipday.com/reference/driver-location-update
+    type: APIReference
+  - url: openapi/shipday-openapi.yml
+    type: OpenAPI
+  description: Subscribe to real-time order status events (ORDER_INSERTED, ORDER_ASSIGNED,
+    ORDER_ONTHEWAY, ORDER_COMPLETED, ORDER_FAILED, and more) delivered via HTTP POST,
+    plus a beta driver-location webhook streaming live driver coordinates.
+common:
+- type: GitHubOrganization
+  url: https://github.com/shipday
+- type: LinkedIn
+  url: https://www.linkedin.com/company/shipday
+- type: Website
+  url: https://www.shipday.com
+- type: Documentation
+  url: https://docs.shipday.com
+- type: Plans
+  url: plans/shipday-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/shipday-rate-limits.yml
+- type: FinOps
+  url: finops/shipday-finops.yml
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

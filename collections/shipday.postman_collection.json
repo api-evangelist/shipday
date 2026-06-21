@@ -1,0 +1,429 @@
+{
+  "item": [
+    {
+      "id": "shipday-orders-folder",
+      "name": "Orders",
+      "description": {
+        "content": "Create, list, edit, and delete delivery orders.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "shipday-retrieve-active-orders",
+          "name": "Retrieve active orders",
+          "request": {
+            "name": "Retrieve active orders",
+            "description": {
+              "content": "Returns an array of active order objects for the account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/orders",
+              "path": ["orders"],
+              "host": ["{{baseUrl}}"],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        },
+        {
+          "id": "shipday-insert-order",
+          "name": "Insert a delivery order",
+          "request": {
+            "name": "Insert a delivery order",
+            "description": {
+              "content": "Creates a new delivery order.",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/orders",
+              "path": ["orders"],
+              "host": ["{{baseUrl}}"],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"orderNumber\": \"<string>\",\n  \"customerName\": \"<string>\",\n  \"customerAddress\": \"<string>\",\n  \"customerEmail\": \"<string>\",\n  \"customerPhoneNumber\": \"<string>\",\n  \"restaurantName\": \"<string>\",\n  \"restaurantAddress\": \"<string>\",\n  \"deliveryFee\": 0,\n  \"totalOrderCost\": 0,\n  \"paymentMethod\": \"cash\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "shipday-edit-order",
+          "name": "Edit an order",
+          "request": {
+            "name": "Edit an order",
+            "description": {
+              "content": "Edits an existing order identified by its orderId.",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/order/edit/:orderId",
+              "path": ["order", "edit", ":orderId"],
+              "host": ["{{baseUrl}}"],
+              "query": [],
+              "variable": [
+                {
+                  "key": "orderId",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"orderNo\": \"<string>\",\n  \"customerName\": \"<string>\",\n  \"customerAddress\": \"<string>\",\n  \"customerEmail\": \"<string>\",\n  \"customerPhoneNumber\": \"<string>\",\n  \"restaurantName\": \"<string>\",\n  \"restaurantAddress\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "shipday-delete-order",
+          "name": "Delete an order",
+          "request": {
+            "name": "Delete an order",
+            "description": {
+              "content": "Deletes an order identified by its orderId.",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/orders/:orderId",
+              "path": ["orders", ":orderId"],
+              "host": ["{{baseUrl}}"],
+              "query": [],
+              "variable": [
+                {
+                  "key": "orderId",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "header": [],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": []
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "shipday-drivers-folder",
+      "name": "Drivers",
+      "description": {
+        "content": "Add, list, and remove carriers (drivers).",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "shipday-retrieve-carriers",
+          "name": "Retrieve carriers",
+          "request": {
+            "name": "Retrieve carriers",
+            "description": {
+              "content": "Returns the list of carriers (drivers) on the account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/carriers",
+              "path": ["carriers"],
+              "host": ["{{baseUrl}}"],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        },
+        {
+          "id": "shipday-add-carrier",
+          "name": "Add a carrier",
+          "request": {
+            "name": "Add a carrier",
+            "description": {
+              "content": "Adds a new carrier (driver) and returns an auto-generated password.",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/carriers",
+              "path": ["carriers"],
+              "host": ["{{baseUrl}}"],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"phoneNumber\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "shipday-delete-carrier",
+          "name": "Delete a carrier",
+          "request": {
+            "name": "Delete a carrier",
+            "description": {
+              "content": "Removes a carrier (driver) from the account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/carriers/:carrierId",
+              "path": ["carriers", ":carrierId"],
+              "host": ["{{baseUrl}}"],
+              "query": [],
+              "variable": [
+                {
+                  "key": "carrierId",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "header": [],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": []
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "shipday-assignment-folder",
+      "name": "Assignment",
+      "description": {
+        "content": "Assign and unassign orders to your own fleet.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "shipday-assign-order",
+          "name": "Assign an order to a carrier",
+          "request": {
+            "name": "Assign an order to a carrier",
+            "description": {
+              "content": "Assigns an order to a specific carrier by order ID and carrier ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/orders/assign/:orderId/:carrierId",
+              "path": ["orders", "assign", ":orderId", ":carrierId"],
+              "host": ["{{baseUrl}}"],
+              "query": [],
+              "variable": [
+                {
+                  "key": "orderId",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "carrierId",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "header": [],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": []
+        },
+        {
+          "id": "shipday-unassign-order",
+          "name": "Unassign an order from a driver",
+          "request": {
+            "name": "Unassign an order from a driver",
+            "description": {
+              "content": "Removes the current carrier assignment from an order.",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/orders/assign/:orderId",
+              "path": ["orders", "assign", ":orderId"],
+              "host": ["{{baseUrl}}"],
+              "query": [],
+              "variable": [
+                {
+                  "key": "orderId",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "header": [],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": []
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "shipday-ondemand-folder",
+      "name": "On-Demand Delivery",
+      "description": {
+        "content": "Check availability and assign third-party on-demand deliveries.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "shipday-ondemand-availability",
+          "name": "Check on-demand delivery availability",
+          "request": {
+            "name": "Check on-demand delivery availability",
+            "description": {
+              "content": "Returns available third-party providers with fees and timing estimates.",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/on-demand/availability",
+              "path": ["on-demand", "availability"],
+              "host": ["{{baseUrl}}"],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"pickupAddress\": \"<string>\",\n  \"deliveryAddress\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "shipday-ondemand-assign",
+          "name": "Assign an order to an on-demand provider",
+          "request": {
+            "name": "Assign an order to an on-demand provider",
+            "description": {
+              "content": "Assigns an order to a third-party provider (e.g. Uber, DoorDash) for last-mile fulfillment.",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/on-demand/assign",
+              "path": ["on-demand", "assign"],
+              "host": ["{{baseUrl}}"],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"orderId\": 0,\n  \"contactlessDelivery\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.shipday.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "password",
+        "value": ""
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b1f2c3d4-5678-49ab-9cde-shipday000001",
+    "name": "Shipday API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Shipday REST API for managing delivery and pickup orders, drivers (carriers), order assignment, and on-demand delivery. Secured with HTTP Basic authentication using your API key.\n\nContact Support:\n Name: Shipday Support\n URL: https://www.shipday.com",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,52 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Shipday
+providerId: shipday
+created: '2026-06-21'
+modified: '2026-06-21'
+reconciled: false
+tags:
+- Delivery
+- Logistics
+- Last Mile
+- Local Delivery
+- Dispatch
+- Rate Limiting
+- Quotas
+- Throttling
+description: >-
+  Shipday secures its REST API with HTTP Basic authentication and applies
+  endpoint-specific rate limits. The Order Delivery Progress tracking endpoint
+  is documented at 3 requests per minute per trackingId and is limited to
+  Business Advanced plan customers. General per-account request limits for
+  order, carrier, assignment, and on-demand endpoints are not published in the
+  documentation and are not reconciled in this artifact.
+notes: >-
+  Confirm current per-endpoint and per-account limits with Shipday support or
+  the API reference during reconciliation. Only the Order Delivery Progress
+  limit is explicitly documented.
+sources:
+- https://docs.shipday.com/reference/order-delivery-progress
+- https://docs.shipday.com/reference/shipday-api
+responseCodes:
+  throttled: 429
+limits:
+- name: Order Delivery Progress
+  scope: trackingId
+  metric: requests
+  limit: 3 per minute
+  notes: Documented limit of 3 requests/minute per trackingId; Business Advanced plan only.
+- name: General API Requests
+  scope: account
+  metric: requests
+  limit: see provider documentation
+  notes: Per-account request limits for order, carrier, assignment, and on-demand endpoints are not published.
+policies:
+- name: Authentication
+  description: All requests require HTTP Basic auth with the account API key sent in the Authorization header.
+- name: Backoff Strategy
+  description: Clients should implement exponential backoff with jitter and honor Retry-After on 429 responses.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

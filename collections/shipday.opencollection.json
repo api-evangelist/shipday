@@ -1,0 +1,189 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Shipday API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{apiKey}}",
+      "password": ""
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Orders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve active orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.shipday.com/orders"
+          },
+          "docs": "Returns an array of active order objects for the account."
+        },
+        {
+          "info": {
+            "name": "Insert a delivery order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.shipday.com/orders",
+            "body": {
+              "type": "json",
+              "data": "{\n  \"orderNumber\": \"\",\n  \"customerName\": \"\",\n  \"customerAddress\": \"\",\n  \"customerEmail\": \"\",\n  \"customerPhoneNumber\": \"\",\n  \"restaurantName\": \"\",\n  \"restaurantAddress\": \"\"\n}"
+            }
+          },
+          "docs": "Creates a new delivery order."
+        },
+        {
+          "info": {
+            "name": "Edit an order",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.shipday.com/order/edit/{orderId}",
+            "body": {
+              "type": "json",
+              "data": "{\n  \"orderNo\": \"\",\n  \"customerName\": \"\",\n  \"customerAddress\": \"\",\n  \"customerEmail\": \"\",\n  \"customerPhoneNumber\": \"\",\n  \"restaurantName\": \"\",\n  \"restaurantAddress\": \"\"\n}"
+            }
+          },
+          "docs": "Edits an existing order identified by its orderId."
+        },
+        {
+          "info": {
+            "name": "Delete an order",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.shipday.com/orders/{orderId}"
+          },
+          "docs": "Deletes an order identified by its orderId."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Drivers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve carriers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.shipday.com/carriers"
+          },
+          "docs": "Returns the list of carriers (drivers) on the account."
+        },
+        {
+          "info": {
+            "name": "Add a carrier",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.shipday.com/carriers",
+            "body": {
+              "type": "json",
+              "data": "{\n  \"name\": \"\",\n  \"email\": \"\",\n  \"phoneNumber\": \"\"\n}"
+            }
+          },
+          "docs": "Adds a new carrier (driver) and returns an auto-generated password."
+        },
+        {
+          "info": {
+            "name": "Delete a carrier",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.shipday.com/carriers/{carrierId}"
+          },
+          "docs": "Removes a carrier (driver) from the account."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Assignment",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Assign an order to a carrier",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.shipday.com/orders/assign/{orderId}/{carrierId}"
+          },
+          "docs": "Assigns an order to a specific carrier by order ID and carrier ID."
+        },
+        {
+          "info": {
+            "name": "Unassign an order from a driver",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.shipday.com/orders/assign/{orderId}"
+          },
+          "docs": "Removes the current carrier assignment from an order."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "On-Demand Delivery",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Check on-demand delivery availability",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.shipday.com/on-demand/availability",
+            "body": {
+              "type": "json",
+              "data": "{\n  \"pickupAddress\": \"\",\n  \"deliveryAddress\": \"\"\n}"
+            }
+          },
+          "docs": "Returns available third-party providers with fees and timing estimates."
+        },
+        {
+          "info": {
+            "name": "Assign an order to an on-demand provider",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.shipday.com/on-demand/assign",
+            "body": {
+              "type": "json",
+              "data": "{\n  \"name\": \"\",\n  \"orderId\": 0\n}"
+            }
+          },
+          "docs": "Assigns an order to a third-party provider (e.g. Uber, DoorDash) for last-mile fulfillment."
+        }
+      ]
+    }
+  ]
+}

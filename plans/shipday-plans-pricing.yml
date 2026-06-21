@@ -1,0 +1,173 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Shipday
+providerId: shipday
+created: '2026-06-21'
+modified: '2026-06-21'
+reconciled: false
+tags:
+- Delivery
+- Logistics
+- Last Mile
+- Local Delivery
+- Dispatch
+- Plans
+description: >-
+  Shipday sells delivery management software on tiered monthly subscriptions
+  rather than per-driver seats. A free Starter tier covers small operations,
+  with paid Professional, Branded Elite, and Business Advanced tiers adding
+  unlimited drivers, SMS notifications, route optimization, branded apps, and
+  automation. Each plan includes a monthly order allotment; orders beyond the
+  allotment incur per-order overage fees that include SMS cost. Third-party
+  on-demand deliveries (Uber, DoorDash) are billed per delivery at the
+  provider's quoted fee. The API is available across plans.
+notes: >-
+  Plan names, prices, and order allotments are subject to change; verify the
+  current Shipday pricing page during reconciliation. Per-order overage and
+  on-demand delivery fees vary by region.
+sources:
+- https://www.shipday.com/pricing
+- https://docs.shipday.com
+plans:
+- id: shipday-starter
+  name: Starter
+  type: free
+  description: >-
+    Free plan for new businesses, including up to 10 drivers and up to 300
+    orders per month with the driver app, dispatch/admin app, real-time
+    tracking, live ETA, proof of delivery, and basic reporting.
+  entries:
+  - label: Monthly Orders Included
+    name: orders_included
+    type: usage
+    metric: orders
+    limit: 300
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: included
+    userMultiplied: false
+  - label: Drivers
+    name: drivers
+    type: flat
+    metric: drivers
+    limit: 10
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: included
+    userMultiplied: false
+  elements:
+  - name: Driver App
+  - name: Dispatch / Admin App
+  - name: Real-Time Driver Tracking
+  - name: Live ETA Tracking
+  - name: Proof of Delivery
+  - name: Basic Reporting
+  - name: REST API
+- id: shipday-professional
+  name: Professional
+  type: paid
+  description: >-
+    Paid tier with unlimited drivers, SMS notifications, route optimization,
+    and access to third-party on-demand delivery services. Includes a monthly
+    order allotment with per-order overage beyond it.
+  entries:
+  - label: Monthly Subscription
+    name: subscription
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: from $39/month
+    userMultiplied: false
+  - label: Per-Order Overage
+    name: order_overage
+    type: usage
+    metric: orders
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: from $0.04/order (incl. SMS), $0.10/order in US/Canada
+    userMultiplied: false
+  elements:
+  - name: Unlimited Drivers
+  - name: SMS Notifications
+  - name: Route Optimization
+  - name: On-Demand Delivery Network
+  - name: REST API
+- id: shipday-branded-elite
+  name: Branded Elite
+  type: paid
+  description: >-
+    Branded customer experience with unlimited drivers and dispatch/staff
+    accounts, branded apps and tracking, marketing tools, and AI-powered
+    customer chat.
+  entries:
+  - label: Monthly Subscription
+    name: subscription
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: from $119/month
+    userMultiplied: false
+  elements:
+  - name: Branded Apps & Tracking
+  - name: Unlimited Drivers & Staff Accounts
+  - name: Marketing Tools
+  - name: AI Customer Chat
+  - name: REST API
+- id: shipday-business-advanced
+  name: Business Advanced
+  type: paid
+  description: >-
+    Highest tier with enhanced automation, custom reporting, the Order
+    Delivery Progress tracking API, and dedicated support.
+  entries:
+  - label: Monthly Subscription
+    name: subscription
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: from $299/month
+    userMultiplied: false
+  elements:
+  - name: Enhanced Automation
+  - name: Custom Reporting
+  - name: Order Delivery Progress API
+  - name: Dedicated Support
+  - name: REST API
+- id: shipday-on-demand
+  name: On-Demand Delivery
+  type: usage
+  description: >-
+    Third-party last-mile delivery via the Shipday network (Uber, DoorDash,
+    and others), billed per delivery at the provider's quoted fee returned by
+    the availability endpoint.
+  entries:
+  - label: On-Demand Delivery Fee
+    name: on_demand_delivery
+    type: usage
+    metric: deliveries
+    limit: -1
+    timeFrame: usage
+    geo: global
+    unit: 1
+    price: provider-quoted fee per delivery
+    userMultiplied: false
+  elements:
+  - name: DoorDash Network
+  - name: Uber Network
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

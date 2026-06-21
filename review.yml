@@ -1,0 +1,84 @@
+aid: shipday
+name: Shipday
+review:
+  question: Does Shipday expose a documented public WebSocket API?
+  answer: false
+  date: '2026-06-21'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    Shipday's real-time surface is delivered through outbound HTTP webhooks
+    (the merchant registers an endpoint and Shipday POSTs events), not a
+    WebSocket or Server-Sent Events stream. No AsyncAPI document was created
+    because the webhook event model is documented prose-only and there is no
+    ws:// or SSE transport to model.
+findings:
+  summary: |
+    Shipday does not publish a documented public WebSocket API. The Shipday
+    platform exposes a REST (HTTPS) API under https://api.shipday.com secured
+    with HTTP Basic authentication. Real-time order status and driver-location
+    updates are delivered as outbound HTTP webhooks (Shipday POSTs JSON to a
+    merchant-provided endpoint), which is the opposite direction of a
+    client-initiated stream and is not WebSocket. No realtime, bidirectional,
+    or audio/location streaming WebSocket (ws:// or wss://) endpoint is
+    documented.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://api.shipday.com
+      documented: true
+    - protocol: Webhook
+      scheme: https
+      note: Shipday POSTs order-status and driver-location events to a merchant-registered HTTPS endpoint. Outbound HTTP callbacks, not WebSocket.
+      documented: true
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented in Shipday's API reference, webhook docs, or any product page as of the review date.
+  endpointsConfirmedRest:
+    - GET    https://api.shipday.com/orders
+    - POST   https://api.shipday.com/orders
+    - PUT    https://api.shipday.com/order/edit/{orderId}
+    - DELETE https://api.shipday.com/orders/{orderId}
+    - GET    https://api.shipday.com/carriers
+    - POST   https://api.shipday.com/carriers
+    - DELETE https://api.shipday.com/carriers/{carrierId}
+    - PUT    https://api.shipday.com/orders/assign/{orderId}/{carrierId}
+    - DELETE https://api.shipday.com/orders/assign/{orderId}
+    - POST   https://api.shipday.com/on-demand/availability
+    - POST   https://api.shipday.com/on-demand/assign
+  webhookEventsConfirmed:
+    - ORDER_INSERTED
+    - ORDER_ASSIGNED
+    - ORDER_ACCEPTED_AND_STARTED
+    - ORDER_ONTHEWAY
+    - ORDER_PIKEDUP
+    - ORDER_COMPLETED
+    - ORDER_FAILED
+    - ORDER_INCOMPLETE
+    - ORDER_UNASSIGNED
+    - ORDER_DELETE
+    - ORDER_POD_UPLOAD
+    - LOCATION_UPDATE (Driver Location webhook, beta)
+sources:
+  - url: https://docs.shipday.com/reference/shipday-api
+    type: APIReference
+    note: All documented endpoints are HTTPS REST under https://api.shipday.com; no WebSocket mentioned.
+  - url: https://docs.shipday.com/reference/authentication
+    type: Documentation
+    note: API secured with HTTP Basic authentication using the account API key.
+  - url: https://docs.shipday.com/reference/order-status-update-2
+    type: Documentation
+    note: Order status updates are delivered via outbound webhook (HTTP POST) subscription, not WebSocket.
+  - url: https://docs.shipday.com/reference/driver-location-update
+    type: Documentation
+    note: Driver-location updates are a beta outbound webhook (LOCATION_UPDATE event), not a WebSocket stream.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket protocol surface exists. Shipday's real-time delivery is an
+    outbound webhook model documented in prose only, so no AsyncAPI document
+    was authored. The Webhooks API is represented in apis.yml with its
+    Documentation and API Reference properties pointing at the order-status
+    and driver-location webhook docs.
