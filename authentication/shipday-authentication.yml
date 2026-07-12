@@ -1,0 +1,14 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/shipday-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: basicAuth
+  type: http
+  scheme: basic
+  description: 'HTTP Basic authentication. Send your API key as the credential in the Authorization
+    header, e.g. `Authorization: Basic {API_KEY}`.'
+  sources:
+  - openapi/shipday-openapi.yml

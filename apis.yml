@@ -129,6 +129,10 @@ apis:
     ORDER_ONTHEWAY, ORDER_COMPLETED, ORDER_FAILED, and more) delivered via HTTP POST,
     plus a beta driver-location webhook streaming live driver coordinates.
 common:
+- type: DomainSecurity
+  url: security/shipday-domain-security.yml
+- type: Authentication
+  url: authentication/shipday-authentication.yml
 - type: GitHubOrganization
   url: https://github.com/shipday
 - type: LinkedIn
@@ -143,6 +147,8 @@ common:
   url: rate-limits/shipday-rate-limits.yml
 - type: FinOps
   url: finops/shipday-finops.yml
+- type: Blog
+  url: https://www.shipday.com/blog
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
