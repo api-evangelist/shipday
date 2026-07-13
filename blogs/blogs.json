@@ -1,0 +1,14 @@
+{
+  "repo": "shipday",
+  "feeds": [
+    {
+      "source": "https://www.shipday.com/blog",
+      "feed_url": "https://www.shipday.com/blog",
+      "title": "Shipday Blog",
+      "saved": 0,
+      "error": "parse_failed"
+    }
+  ],
+  "fetched": "2026-07-11T11:43:46Z",
+  "post_count": 5
+}
