@@ -129,6 +129,8 @@ apis:
     ORDER_ONTHEWAY, ORDER_COMPLETED, ORDER_FAILED, and more) delivered via HTTP POST,
     plus a beta driver-location webhook streaming live driver coordinates.
 common:
+- type: AgenticAccess
+  url: agentic-access/shipday-agentic-access.yml
 - type: DomainSecurity
   url: security/shipday-domain-security.yml
 - type: Authentication
