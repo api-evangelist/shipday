@@ -1,0 +1,130 @@
+openapi: 3.0.1
+info:
+  title: Shipday Assignment Drivers API
+  description: The Shipday REST API lets you programmatically manage delivery and pickup orders, drivers (carriers), order assignment to your own fleet, and an on-demand delivery network (Uber, DoorDash) for last-mile fulfillment. The API is served over HTTPS and secured with HTTP Basic authentication using your API key.
+  termsOfService: https://www.shipday.com/terms
+  contact:
+    name: Shipday Support
+    url: https://www.shipday.com
+  version: '1.0'
+servers:
+- url: https://api.shipday.com
+security:
+- basicAuth: []
+tags:
+- name: Drivers
+paths:
+  /carriers:
+    get:
+      operationId: retrieveCarriers
+      tags:
+      - Drivers
+      summary: Retrieve carriers
+      description: Returns the list of carriers (drivers) on the account.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Carrier'
+    post:
+      operationId: addCarrier
+      tags:
+      - Drivers
+      summary: Add a carrier
+      description: Adds a new carrier (driver) to the account and returns an auto-generated password for the driver app login.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddCarrierRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AddCarrierResponse'
+  /carriers/{carrierId}:
+    delete:
+      operationId: deleteCarrier
+      tags:
+      - Drivers
+      summary: Delete a carrier
+      description: Removes a carrier (driver) from the account.
+      parameters:
+      - name: carrierId
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SimpleResponse'
+components:
+  schemas:
+    AddCarrierResponse:
+      type: object
+      properties:
+        carrierId:
+          type: integer
+        email:
+          type: string
+        password:
+          type: string
+          description: Auto-generated password the carrier should update.
+        message:
+          type: string
+    Carrier:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        phoneNumber:
+          type: string
+        email:
+          type: string
+        carrierPhoto:
+          type: string
+        isOnShift:
+          type: boolean
+        isActive:
+          type: boolean
+    AddCarrierRequest:
+      type: object
+      required:
+      - name
+      - email
+      - phoneNumber
+      properties:
+        name:
+          type: string
+          description: Full name of the carrier (driver).
+        email:
+          type: string
+          description: Valid email address of the carrier.
+        phoneNumber:
+          type: string
+          description: Phone number, optionally including country code.
+    SimpleResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        response:
+          type: string
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: 'HTTP Basic authentication. Send your API key as the credential in the Authorization header, e.g. `Authorization: Basic {API_KEY}`.'

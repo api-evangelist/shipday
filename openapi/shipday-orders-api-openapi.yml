@@ -1,0 +1,382 @@
+openapi: 3.0.1
+info:
+  title: Shipday Assignment Orders API
+  description: The Shipday REST API lets you programmatically manage delivery and pickup orders, drivers (carriers), order assignment to your own fleet, and an on-demand delivery network (Uber, DoorDash) for last-mile fulfillment. The API is served over HTTPS and secured with HTTP Basic authentication using your API key.
+  termsOfService: https://www.shipday.com/terms
+  contact:
+    name: Shipday Support
+    url: https://www.shipday.com
+  version: '1.0'
+servers:
+- url: https://api.shipday.com
+security:
+- basicAuth: []
+tags:
+- name: Orders
+paths:
+  /orders:
+    get:
+      operationId: retrieveActiveOrders
+      tags:
+      - Orders
+      summary: Retrieve active orders
+      description: Returns an array of active order objects for the account.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Order'
+    post:
+      operationId: insertOrder
+      tags:
+      - Orders
+      summary: Insert a delivery order
+      description: Creates a new delivery order.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InsertOrderRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InsertOrderResponse'
+  /order/edit/{orderId}:
+    put:
+      operationId: editOrder
+      tags:
+      - Orders
+      summary: Edit an order
+      description: Edits an existing order identified by its orderId.
+      parameters:
+      - name: orderId
+        in: path
+        required: true
+        description: Unique identifier of the order returned when it was placed.
+        schema:
+          type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EditOrderRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SimpleResponse'
+  /orders/{orderId}:
+    delete:
+      operationId: deleteOrder
+      tags:
+      - Orders
+      summary: Delete an order
+      description: Deletes an order identified by its orderId.
+      parameters:
+      - name: orderId
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SimpleResponse'
+components:
+  schemas:
+    InsertOrderRequest:
+      type: object
+      required:
+      - orderNumber
+      - customerName
+      - customerAddress
+      - restaurantName
+      - restaurantAddress
+      properties:
+        orderNumber:
+          type: string
+        customerName:
+          type: string
+        customerAddress:
+          type: string
+        customerEmail:
+          type: string
+        customerPhoneNumber:
+          type: string
+        restaurantName:
+          type: string
+        restaurantAddress:
+          type: string
+        restaurantPhoneNumber:
+          type: string
+        expectedDeliveryDate:
+          type: string
+          description: Date in yyyy-mm-dd format.
+        expectedPickupTime:
+          type: string
+          description: Time in hh:mm:ss format.
+        expectedDeliveryTime:
+          type: string
+          description: Time in hh:mm:ss format.
+        pickupLatitude:
+          type: number
+          format: double
+        pickupLongitude:
+          type: number
+          format: double
+        deliveryLatitude:
+          type: number
+          format: double
+        deliveryLongitude:
+          type: number
+          format: double
+        orderItem:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrderItem'
+        tips:
+          type: number
+          format: double
+        tax:
+          type: number
+          format: double
+        discountAmount:
+          type: number
+          format: double
+        deliveryFee:
+          type: number
+          format: double
+        totalOrderCost:
+          type: number
+          format: double
+        deliveryInstruction:
+          type: string
+        pickupInstruction:
+          type: string
+        orderSource:
+          type: string
+        additionalId:
+          type: string
+        clientRestaurantId:
+          type: integer
+        paymentMethod:
+          type: string
+          enum:
+          - cash
+          - credit_card
+        creditCardType:
+          type: string
+          enum:
+          - VISA
+          - MASTER_CARD
+          - AMEX
+          - OTHER
+        creditCardId:
+          type: integer
+        isCatering:
+          type: boolean
+    InsertOrderResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+          description: Indicates the success of the order insert.
+        response:
+          type: string
+          description: Message on successful creation of the order.
+        orderId:
+          type: integer
+          description: Unique identifier for the created order.
+    SimpleResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        response:
+          type: string
+    OrderItem:
+      type: object
+      properties:
+        name:
+          type: string
+        unitPrice:
+          type: number
+          format: double
+        quantity:
+          type: integer
+        addOns:
+          type: array
+          items:
+            type: string
+        detail:
+          type: string
+    EditOrderRequest:
+      type: object
+      required:
+      - orderNo
+      - customerName
+      - customerAddress
+      - customerEmail
+      - customerPhoneNumber
+      - restaurantName
+      - restaurantAddress
+      properties:
+        orderNo:
+          type: string
+        customerName:
+          type: string
+        customerAddress:
+          type: string
+        customerEmail:
+          type: string
+        customerPhoneNumber:
+          type: string
+        restaurantName:
+          type: string
+        restaurantAddress:
+          type: string
+        restaurantPhoneNumber:
+          type: string
+        expectedDeliveryDate:
+          type: string
+        expectedPickupTime:
+          type: string
+        expectedDeliveryTime:
+          type: string
+        tips:
+          type: number
+          format: double
+        tax:
+          type: number
+          format: double
+        discountAmount:
+          type: number
+          format: double
+        deliveryFee:
+          type: number
+          format: double
+        totalOrderCost:
+          type: number
+          format: double
+        deliveryInstruction:
+          type: string
+        paymentMethod:
+          type: string
+          enum:
+          - cash
+          - credit_card
+    Order:
+      type: object
+      properties:
+        orderId:
+          type: integer
+        orderNumber:
+          type: string
+        companyId:
+          type: integer
+        areaId:
+          type: integer
+        customerName:
+          type: string
+        customerAddress:
+          type: string
+        customerPhoneNumber:
+          type: string
+        customerEmail:
+          type: string
+        deliveryLatitude:
+          type: number
+          format: double
+        deliveryLongitude:
+          type: number
+          format: double
+        restaurantName:
+          type: string
+        restaurantAddress:
+          type: string
+        restaurantPhoneNumber:
+          type: string
+        pickupLatitude:
+          type: number
+          format: double
+        pickupLongitude:
+          type: number
+          format: double
+        assignedCarrier:
+          $ref: '#/components/schemas/Carrier'
+        distance:
+          type: number
+          format: double
+        placementTime:
+          type: string
+        expectedPickupTime:
+          type: string
+        expectedDeliveryDate:
+          type: string
+        expectedDeliveryTime:
+          type: string
+        deliveryTime:
+          type: string
+        totalCost:
+          type: number
+          format: double
+        deliveryFee:
+          type: number
+          format: double
+        tip:
+          type: number
+          format: double
+        tax:
+          type: number
+          format: double
+        discountAmount:
+          type: number
+          format: double
+        paymentMethod:
+          type: string
+        orderItems:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrderItem'
+        orderState:
+          type: string
+        trackingLink:
+          type: string
+        deliveryInstruction:
+          type: string
+    Carrier:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        phoneNumber:
+          type: string
+        email:
+          type: string
+        carrierPhoto:
+          type: string
+        isOnShift:
+          type: boolean
+        isActive:
+          type: boolean
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: 'HTTP Basic authentication. Send your API key as the credential in the Authorization header, e.g. `Authorization: Basic {API_KEY}`.'

@@ -1,0 +1,160 @@
+openapi: 3.0.1
+info:
+  title: Shipday Assignment On-Demand Delivery API
+  description: The Shipday REST API lets you programmatically manage delivery and pickup orders, drivers (carriers), order assignment to your own fleet, and an on-demand delivery network (Uber, DoorDash) for last-mile fulfillment. The API is served over HTTPS and secured with HTTP Basic authentication using your API key.
+  termsOfService: https://www.shipday.com/terms
+  contact:
+    name: Shipday Support
+    url: https://www.shipday.com
+  version: '1.0'
+servers:
+- url: https://api.shipday.com
+security:
+- basicAuth: []
+tags:
+- name: On-Demand Delivery
+paths:
+  /on-demand/availability:
+    post:
+      operationId: checkOnDemandAvailability
+      tags:
+      - On-Demand Delivery
+      summary: Check on-demand delivery availability
+      description: Returns available third-party delivery providers (e.g. DoorDash, Uber) with fees and timing estimates for a given pickup/delivery pair.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AvailabilityRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AvailabilityOption'
+  /on-demand/assign:
+    post:
+      operationId: assignOnDemand
+      tags:
+      - On-Demand Delivery
+      summary: Assign an order to an on-demand provider
+      description: Assigns an order to a specific third-party delivery service provider (e.g. Uber, DoorDash) for last-mile fulfillment.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OnDemandAssignRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OnDemandDeliveryDetails'
+components:
+  schemas:
+    OnDemandAssignRequest:
+      type: object
+      required:
+      - name
+      - orderId
+      properties:
+        name:
+          type: string
+          description: Third-party service provider name (e.g. Uber, DoorDash).
+        orderId:
+          type: integer
+        tip:
+          type: number
+          format: double
+        estimateReference:
+          type: string
+          description: Reference ID from a prior availability estimate.
+        contactlessDelivery:
+          type: boolean
+          default: false
+        podType:
+          type: string
+          enum:
+          - PHOTO
+          - SIGNATURE
+          - PIN
+          - NONE
+        podTypes:
+          type: array
+          items:
+            type: string
+            enum:
+            - PHOTO
+            - SIGNATURE
+            - PIN
+            - NONE
+    AvailabilityRequest:
+      type: object
+      required:
+      - pickupAddress
+      - deliveryAddress
+      properties:
+        pickupAddress:
+          type: string
+          description: Pickup address of the order.
+        deliveryAddress:
+          type: string
+          description: Delivery address of the order.
+        deliveryTime:
+          type: string
+          description: Expected delivery time in ISO 8601 UTC format.
+        pickUpTime:
+          type: string
+          description: Expected pickup time in ISO 8601 UTC format.
+    OnDemandDeliveryDetails:
+      type: object
+      properties:
+        orderId:
+          type: integer
+        provider:
+          type: string
+        trackingUrl:
+          type: string
+        fee:
+          type: number
+          format: double
+        status:
+          type: string
+        driverName:
+          type: string
+        driverPhoneNumber:
+          type: string
+    AvailabilityOption:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Provider name (e.g. DoorDash, Uber, MotoClick).
+        fee:
+          type: number
+          format: double
+        pickupTime:
+          type: string
+        deliveryTime:
+          type: string
+        pickupDuration:
+          type: integer
+        deliveryDuration:
+          type: integer
+        error:
+          type: boolean
+        errorMessage:
+          type: string
+        errorDescription:
+          type: string
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: 'HTTP Basic authentication. Send your API key as the credential in the Authorization header, e.g. `Authorization: Basic {API_KEY}`.'
