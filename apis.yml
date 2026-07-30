@@ -7,7 +7,20 @@ description: Shipday is a local delivery management platform for restaurants, re
   orders, manage drivers (carriers), assign orders to your own fleet, and tap a network
   of on-demand delivery providers (Uber, DoorDash) for last-mile fulfillment, with
   webhooks for real-time order and driver-location updates.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: paid
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Paid · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/shipday.png
 tags:
 - Delivery
 - Logistics
@@ -18,116 +31,142 @@ created: '2026-06-21'
 modified: '2026-06-21'
 specificationVersion: '0.19'
 apis:
-- aid: shipday:orders
-  name: Shipday Orders API
-  tags:
-  - Orders
-  - Deliveries
-  - Pickup
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+- aid: shipday:shipday-assignment-api
+  name: Shipday Assignment API
+  description: The Assignment API from Shipday — 2 operation(s) for assignment.
   humanURL: https://docs.shipday.com/reference/shipday-api
   baseURL: https://api.shipday.com
-  properties:
-  - url: https://docs.shipday.com/reference/insert-delivery-order
-    type: Documentation
-  - url: https://docs.shipday.com/reference/shipday-api
-    type: APIReference
-  - url: openapi/shipday-openapi.yml
-    type: OpenAPI
-  - url: collections/shipday.postman_collection.json
-    type: PostmanCollection
-  - url: collections/shipday.opencollection.json
-    type: OpenCollection
-  description: Create, list, edit, and delete delivery and pickup orders. Insert a
-    delivery order with customer, restaurant/pickup, and cost details; retrieve active
-    orders; edit an existing order by ID; and manage pickup orders.
-- aid: shipday:drivers-carriers
-  name: Shipday Drivers / Carriers API
-  tags:
-  - Drivers
-  - Carriers
-  - Fleet
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.shipday.com/reference/add-a-carrier-1
-  baseURL: https://api.shipday.com
-  properties:
-  - url: https://docs.shipday.com/reference/add-a-carrier-1
-    type: Documentation
-  - url: https://docs.shipday.com/reference/retrieve-carriers
-    type: APIReference
-  - url: openapi/shipday-openapi.yml
-    type: OpenAPI
-  - url: collections/shipday.postman_collection.json
-    type: PostmanCollection
-  - url: collections/shipday.opencollection.json
-    type: OpenCollection
-  description: Add carriers (drivers) to your account, retrieve your carrier roster,
-    and remove carriers. Adding a carrier returns an auto-generated password for the
-    driver app login.
-- aid: shipday:order-assignment
-  name: Shipday Order Assignment API
   tags:
   - Assignment
-  - Dispatch
+  properties:
+  - type: OpenAPI
+    url: openapi/shipday-assignment-api-openapi.yml
+  - type: Documentation
+    url: https://docs.shipday.com/reference/insert-delivery-order
+  - type: APIReference
+    url: https://docs.shipday.com/reference/shipday-api
+  - type: PostmanCollection
+    url: collections/shipday.postman_collection.json
+  - type: OpenCollection
+    url: collections/shipday.opencollection.json
+  - type: Documentation
+    url: https://docs.shipday.com/reference/add-a-carrier-1
+  - type: APIReference
+    url: https://docs.shipday.com/reference/retrieve-carriers
+  - type: Documentation
+    url: https://docs.shipday.com/reference/assign-order
+  - type: APIReference
+    url: https://docs.shipday.com/reference/unassign-order-from-driver-1
+  - type: Documentation
+    url: https://docs.shipday.com/reference/availability-1
+  - type: APIReference
+    url: https://docs.shipday.com/reference/assign
+  - type: Documentation
+    url: https://docs.shipday.com/reference/order-status-update-2
+  - type: APIReference
+    url: https://docs.shipday.com/reference/driver-location-update
+- aid: shipday:shipday-drivers-api
+  name: Shipday Drivers API
+  description: The Drivers API from Shipday — 2 operation(s) for drivers.
+  humanURL: https://docs.shipday.com/reference/shipday-api
+  baseURL: https://api.shipday.com
+  tags:
   - Drivers
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.shipday.com/reference/assign-order
-  baseURL: https://api.shipday.com
   properties:
-  - url: https://docs.shipday.com/reference/assign-order
-    type: Documentation
-  - url: https://docs.shipday.com/reference/unassign-order-from-driver-1
-    type: APIReference
-  - url: openapi/shipday-openapi.yml
-    type: OpenAPI
-  - url: collections/shipday.postman_collection.json
-    type: PostmanCollection
-  - url: collections/shipday.opencollection.json
-    type: OpenCollection
-  description: Assign an order to a specific carrier in your own fleet by order ID
-    and carrier ID, and unassign an order from a driver when dispatch changes.
-- aid: shipday:on-demand-delivery
+  - type: OpenAPI
+    url: openapi/shipday-drivers-api-openapi.yml
+  - type: Documentation
+    url: https://docs.shipday.com/reference/insert-delivery-order
+  - type: APIReference
+    url: https://docs.shipday.com/reference/shipday-api
+  - type: PostmanCollection
+    url: collections/shipday.postman_collection.json
+  - type: OpenCollection
+    url: collections/shipday.opencollection.json
+  - type: Documentation
+    url: https://docs.shipday.com/reference/add-a-carrier-1
+  - type: APIReference
+    url: https://docs.shipday.com/reference/retrieve-carriers
+  - type: Documentation
+    url: https://docs.shipday.com/reference/assign-order
+  - type: APIReference
+    url: https://docs.shipday.com/reference/unassign-order-from-driver-1
+  - type: Documentation
+    url: https://docs.shipday.com/reference/availability-1
+  - type: APIReference
+    url: https://docs.shipday.com/reference/assign
+  - type: Documentation
+    url: https://docs.shipday.com/reference/order-status-update-2
+  - type: APIReference
+    url: https://docs.shipday.com/reference/driver-location-update
+- aid: shipday:shipday-on-demand-delivery-api
   name: Shipday On-Demand Delivery API
-  tags:
-  - On-Demand
-  - Uber
-  - DoorDash
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.shipday.com/reference/availability-1
+  description: The On-Demand Delivery API from Shipday — 2 operation(s) for on-demand delivery.
+  humanURL: https://docs.shipday.com/reference/shipday-api
   baseURL: https://api.shipday.com
-  properties:
-  - url: https://docs.shipday.com/reference/availability-1
-    type: Documentation
-  - url: https://docs.shipday.com/reference/assign
-    type: APIReference
-  - url: openapi/shipday-openapi.yml
-    type: OpenAPI
-  - url: collections/shipday.postman_collection.json
-    type: PostmanCollection
-  - url: collections/shipday.opencollection.json
-    type: OpenCollection
-  description: Check on-demand delivery availability and pricing across third-party
-    networks (DoorDash, Uber) for a pickup/delivery pair, then assign the order to
-    a chosen provider for last-mile fulfillment.
-- aid: shipday:webhooks
-  name: Shipday Webhooks API
   tags:
-  - Webhooks
-  - Events
-  - Tracking
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.shipday.com/reference/order-status-update-2
-  baseURL: https://api.shipday.com
+  - On-Demand Delivery
   properties:
-  - url: https://docs.shipday.com/reference/order-status-update-2
-    type: Documentation
-  - url: https://docs.shipday.com/reference/driver-location-update
-    type: APIReference
-  - url: openapi/shipday-openapi.yml
-    type: OpenAPI
-  description: Subscribe to real-time order status events (ORDER_INSERTED, ORDER_ASSIGNED,
-    ORDER_ONTHEWAY, ORDER_COMPLETED, ORDER_FAILED, and more) delivered via HTTP POST,
-    plus a beta driver-location webhook streaming live driver coordinates.
+  - type: OpenAPI
+    url: openapi/shipday-on-demand-delivery-api-openapi.yml
+  - type: Documentation
+    url: https://docs.shipday.com/reference/insert-delivery-order
+  - type: APIReference
+    url: https://docs.shipday.com/reference/shipday-api
+  - type: PostmanCollection
+    url: collections/shipday.postman_collection.json
+  - type: OpenCollection
+    url: collections/shipday.opencollection.json
+  - type: Documentation
+    url: https://docs.shipday.com/reference/add-a-carrier-1
+  - type: APIReference
+    url: https://docs.shipday.com/reference/retrieve-carriers
+  - type: Documentation
+    url: https://docs.shipday.com/reference/assign-order
+  - type: APIReference
+    url: https://docs.shipday.com/reference/unassign-order-from-driver-1
+  - type: Documentation
+    url: https://docs.shipday.com/reference/availability-1
+  - type: APIReference
+    url: https://docs.shipday.com/reference/assign
+  - type: Documentation
+    url: https://docs.shipday.com/reference/order-status-update-2
+  - type: APIReference
+    url: https://docs.shipday.com/reference/driver-location-update
+- aid: shipday:shipday-orders-api
+  name: Shipday Orders API
+  description: The Orders API from Shipday — 3 operation(s) for orders.
+  humanURL: https://docs.shipday.com/reference/shipday-api
+  baseURL: https://api.shipday.com
+  tags:
+  - Orders
+  properties:
+  - type: OpenAPI
+    url: openapi/shipday-orders-api-openapi.yml
+  - type: Documentation
+    url: https://docs.shipday.com/reference/insert-delivery-order
+  - type: APIReference
+    url: https://docs.shipday.com/reference/shipday-api
+  - type: PostmanCollection
+    url: collections/shipday.postman_collection.json
+  - type: OpenCollection
+    url: collections/shipday.opencollection.json
+  - type: Documentation
+    url: https://docs.shipday.com/reference/add-a-carrier-1
+  - type: APIReference
+    url: https://docs.shipday.com/reference/retrieve-carriers
+  - type: Documentation
+    url: https://docs.shipday.com/reference/assign-order
+  - type: APIReference
+    url: https://docs.shipday.com/reference/unassign-order-from-driver-1
+  - type: Documentation
+    url: https://docs.shipday.com/reference/availability-1
+  - type: APIReference
+    url: https://docs.shipday.com/reference/assign
+  - type: Documentation
+    url: https://docs.shipday.com/reference/order-status-update-2
+  - type: APIReference
+    url: https://docs.shipday.com/reference/driver-location-update
 common:
 - type: AgenticAccess
   url: agentic-access/shipday-agentic-access.yml
