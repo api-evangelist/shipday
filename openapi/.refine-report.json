@@ -1,0 +1,20 @@
+{
+  "provider": "shipday",
+  "sources": [
+    "shipday-assignment-api-openapi.yml",
+    "shipday-drivers-api-openapi.yml",
+    "shipday-on-demand-delivery-api-openapi.yml",
+    "shipday-orders-api-openapi.yml"
+  ],
+  "outputs": [
+    "shipday-assignment-api-openapi.yml",
+    "shipday-drivers-api-openapi.yml",
+    "shipday-on-demand-delivery-api-openapi.yml",
+    "shipday-orders-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
