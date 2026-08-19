@@ -1,0 +1,69 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Shipday Assignment Drivers API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Drivers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve carriers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.shipday.com/carriers"
+          },
+          "docs": "Returns the list of carriers (drivers) on the account."
+        },
+        {
+          "info": {
+            "name": "Add a carrier",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.shipday.com/carriers",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Adds a new carrier (driver) to the account and returns an auto-generated password for the driver app login."
+        },
+        {
+          "info": {
+            "name": "Delete a carrier",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.shipday.com/carriers/:carrierId",
+            "params": [
+              {
+                "name": "carrierId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Removes a carrier (driver) from the account."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

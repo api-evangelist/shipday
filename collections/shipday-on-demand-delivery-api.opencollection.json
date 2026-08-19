@@ -1,0 +1,55 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Shipday Assignment On-Demand Delivery API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "On-Demand Delivery",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Check on-demand delivery availability",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.shipday.com/on-demand/availability",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Returns available third-party delivery providers (e.g. DoorDash, Uber) with fees and timing estimates for a given pickup/delivery pair."
+        },
+        {
+          "info": {
+            "name": "Assign an order to an on-demand provider",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.shipday.com/on-demand/assign",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Assigns an order to a specific third-party delivery service provider (e.g. Uber, DoorDash) for last-mile fulfillment."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

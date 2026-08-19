@@ -1,0 +1,66 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Shipday Assignment API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Assignment",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Assign an order to a carrier",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.shipday.com/orders/assign/:orderId/:carrierId",
+            "params": [
+              {
+                "name": "orderId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "carrierId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Assigns an order to a specific carrier (driver) in your own fleet by order ID and carrier ID."
+        },
+        {
+          "info": {
+            "name": "Unassign an order from a driver",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.shipday.com/orders/assign/:orderId",
+            "params": [
+              {
+                "name": "orderId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Removes the current carrier assignment from an order."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,437 @@
+{
+  "item": [
+    {
+      "id": "47daa4f0-5a78-4f12-b367-136d33d87c12",
+      "name": "Orders",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a0c3d9c8-3e9c-4643-81d3-988ed19909d5",
+          "name": "Retrieve active orders",
+          "request": {
+            "name": "Retrieve active orders",
+            "description": {
+              "content": "Returns an array of active order objects for the account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9f5934fa-75f5-4764-96a1-186adfb9c079",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"orderId\": 7972,\n    \"orderNumber\": \"string\",\n    \"companyId\": 20,\n    \"areaId\": 5991,\n    \"customerName\": \"string\",\n    \"customerAddress\": \"string\",\n    \"customerPhoneNumber\": \"string\",\n    \"customerEmail\": \"string\",\n    \"deliveryLatitude\": 8713.313590411515,\n    \"deliveryLongitude\": 464.8869998966776,\n    \"restaurantName\": \"string\",\n    \"restaurantAddress\": \"string\",\n    \"restaurantPhoneNumber\": \"string\",\n    \"pickupLatitude\": 874.8795709686141,\n    \"pickupLongitude\": 8119.664283798106,\n    \"assignedCarrier\": {\n      \"id\": 9534,\n      \"name\": \"string\",\n      \"phoneNumber\": \"string\",\n      \"email\": \"string\",\n      \"carrierPhoto\": \"string\",\n      \"isOnShift\": false,\n      \"isActive\": false\n    },\n    \"distance\": 7385.798920412131,\n    \"placementTime\": \"string\",\n    \"expectedPickupTime\": \"string\",\n    \"expectedDeliveryDate\": \"string\",\n    \"expectedDeliveryTime\": \"string\",\n    \"deliveryTime\": \"string\",\n    \"totalCost\": 8781.505170747243,\n    \"deliveryFee\": 1555.9525562342235,\n    \"tip\": 8844.274958977805,\n    \"tax\": 9359.692594504331,\n    \"discountAmount\": 6246.973511844768,\n    \"paymentMethod\": \"string\",\n    \"orderItems\": [\n      {\n        \"name\": \"string\",\n        \"unitPrice\": 7373.573727984184,\n        \"quantity\": 6098,\n        \"addOns\": [\n          \"string\",\n          \"string\"\n        ],\n        \"detail\": \"string\"\n      },\n      {\n        \"name\": \"string\",\n        \"unitPrice\": 3719.6011312275123,\n        \"quantity\": 5128,\n        \"addOns\": [\n          \"string\",\n          \"string\"\n        ],\n        \"detail\": \"string\"\n      }\n    ],\n    \"orderState\": \"string\",\n    \"trackingLink\": \"string\",\n    \"deliveryInstruction\": \"string\"\n  },\n  {\n    \"orderId\": 7916,\n    \"orderNumber\": \"string\",\n    \"companyId\": 6910,\n    \"areaId\": 3143,\n    \"customerName\": \"string\",\n    \"customerAddress\": \"string\",\n    \"customerPhoneNumber\": \"string\",\n    \"customerEmail\": \"string\",\n    \"deliveryLatitude\": 7362.850879687794,\n    \"deliveryLongitude\": 8928.532422395405,\n    \"restaurantName\": \"string\",\n    \"restaurantAddress\": \"string\",\n    \"restaurantPhoneNumber\": \"string\",\n    \"pickupLatitude\": 5245.9594504840215,\n    \"pickupLongitude\": 9235.641460634735,\n    \"assignedCarrier\": {\n      \"id\": 4524,\n      \"name\": \"string\",\n      \"phoneNumber\": \"string\",\n      \"email\": \"string\",\n      \"carrierPhoto\": \"string\",\n      \"isOnShift\": false,\n      \"isActive\": false\n    },\n    \"distance\": 5260.933029276971,\n    \"placementTime\": \"string\",\n    \"expectedPickupTime\": \"string\",\n    \"expectedDeliveryDate\": \"string\",\n    \"expectedDeliveryTime\": \"string\",\n    \"deliveryTime\": \"string\",\n    \"totalCost\": 3068.428960794004,\n    \"deliveryFee\": 8640.40380308179,\n    \"tip\": 1026.757687048211,\n    \"tax\": 9727.47440044759,\n    \"discountAmount\": 337.310450241427,\n    \"paymentMethod\": \"string\",\n    \"orderItems\": [\n      {\n        \"name\": \"string\",\n        \"unitPrice\": 2095.3385326583175,\n        \"quantity\": 7677,\n        \"addOns\": [\n          \"string\",\n          \"string\"\n        ],\n        \"detail\": \"string\"\n      },\n      {\n        \"name\": \"string\",\n        \"unitPrice\": 4559.729674613247,\n        \"quantity\": 4885,\n        \"addOns\": [\n          \"string\",\n          \"string\"\n        ],\n        \"detail\": \"string\"\n      }\n    ],\n    \"orderState\": \"string\",\n    \"trackingLink\": \"string\",\n    \"deliveryInstruction\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1390bc73-ac2e-40e7-992b-ed0b36a3154b",
+          "name": "Insert a delivery order",
+          "request": {
+            "name": "Insert a delivery order",
+            "description": {
+              "content": "Creates a new delivery order.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"orderNumber\": \"<string>\",\n  \"customerName\": \"<string>\",\n  \"customerAddress\": \"<string>\",\n  \"restaurantName\": \"<string>\",\n  \"restaurantAddress\": \"<string>\",\n  \"customerEmail\": \"<string>\",\n  \"customerPhoneNumber\": \"<string>\",\n  \"restaurantPhoneNumber\": \"<string>\",\n  \"expectedDeliveryDate\": \"<string>\",\n  \"expectedPickupTime\": \"<string>\",\n  \"expectedDeliveryTime\": \"<string>\",\n  \"pickupLatitude\": \"<double>\",\n  \"pickupLongitude\": \"<double>\",\n  \"deliveryLatitude\": \"<double>\",\n  \"deliveryLongitude\": \"<double>\",\n  \"orderItem\": [\n    {\n      \"name\": \"<string>\",\n      \"unitPrice\": \"<double>\",\n      \"quantity\": \"<integer>\",\n      \"addOns\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"detail\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"unitPrice\": \"<double>\",\n      \"quantity\": \"<integer>\",\n      \"addOns\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"detail\": \"<string>\"\n    }\n  ],\n  \"tips\": \"<double>\",\n  \"tax\": \"<double>\",\n  \"discountAmount\": \"<double>\",\n  \"deliveryFee\": \"<double>\",\n  \"totalOrderCost\": \"<double>\",\n  \"deliveryInstruction\": \"<string>\",\n  \"pickupInstruction\": \"<string>\",\n  \"orderSource\": \"<string>\",\n  \"additionalId\": \"<string>\",\n  \"clientRestaurantId\": \"<integer>\",\n  \"paymentMethod\": \"<string>\",\n  \"creditCardType\": \"<string>\",\n  \"creditCardId\": \"<integer>\",\n  \"isCatering\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2d0504d5-ba06-490f-86ff-f5ec1c337a85",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"orderNumber\": \"<string>\",\n  \"customerName\": \"<string>\",\n  \"customerAddress\": \"<string>\",\n  \"restaurantName\": \"<string>\",\n  \"restaurantAddress\": \"<string>\",\n  \"customerEmail\": \"<string>\",\n  \"customerPhoneNumber\": \"<string>\",\n  \"restaurantPhoneNumber\": \"<string>\",\n  \"expectedDeliveryDate\": \"<string>\",\n  \"expectedPickupTime\": \"<string>\",\n  \"expectedDeliveryTime\": \"<string>\",\n  \"pickupLatitude\": \"<double>\",\n  \"pickupLongitude\": \"<double>\",\n  \"deliveryLatitude\": \"<double>\",\n  \"deliveryLongitude\": \"<double>\",\n  \"orderItem\": [\n    {\n      \"name\": \"<string>\",\n      \"unitPrice\": \"<double>\",\n      \"quantity\": \"<integer>\",\n      \"addOns\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"detail\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"unitPrice\": \"<double>\",\n      \"quantity\": \"<integer>\",\n      \"addOns\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"detail\": \"<string>\"\n    }\n  ],\n  \"tips\": \"<double>\",\n  \"tax\": \"<double>\",\n  \"discountAmount\": \"<double>\",\n  \"deliveryFee\": \"<double>\",\n  \"totalOrderCost\": \"<double>\",\n  \"deliveryInstruction\": \"<string>\",\n  \"pickupInstruction\": \"<string>\",\n  \"orderSource\": \"<string>\",\n  \"additionalId\": \"<string>\",\n  \"clientRestaurantId\": \"<integer>\",\n  \"paymentMethod\": \"<string>\",\n  \"creditCardType\": \"<string>\",\n  \"creditCardId\": \"<integer>\",\n  \"isCatering\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"response\": \"string\",\n  \"orderId\": 6388\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f4021f23-7ee3-4af8-b7e2-6480152ef569",
+          "name": "Edit an order",
+          "request": {
+            "name": "Edit an order",
+            "description": {
+              "content": "Edits an existing order identified by its orderId.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "order",
+                "edit",
+                ":orderId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "orderId",
+                  "description": "(Required) Unique identifier of the order returned when it was placed."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"orderNo\": \"<string>\",\n  \"customerName\": \"<string>\",\n  \"customerAddress\": \"<string>\",\n  \"customerEmail\": \"<string>\",\n  \"customerPhoneNumber\": \"<string>\",\n  \"restaurantName\": \"<string>\",\n  \"restaurantAddress\": \"<string>\",\n  \"restaurantPhoneNumber\": \"<string>\",\n  \"expectedDeliveryDate\": \"<string>\",\n  \"expectedPickupTime\": \"<string>\",\n  \"expectedDeliveryTime\": \"<string>\",\n  \"tips\": \"<double>\",\n  \"tax\": \"<double>\",\n  \"discountAmount\": \"<double>\",\n  \"deliveryFee\": \"<double>\",\n  \"totalOrderCost\": \"<double>\",\n  \"deliveryInstruction\": \"<string>\",\n  \"paymentMethod\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b7b042c9-b677-4522-b37f-a9baf478397e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "order",
+                    "edit",
+                    ":orderId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "orderId",
+                      "description": "(Required) Unique identifier of the order returned when it was placed."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"orderNo\": \"<string>\",\n  \"customerName\": \"<string>\",\n  \"customerAddress\": \"<string>\",\n  \"customerEmail\": \"<string>\",\n  \"customerPhoneNumber\": \"<string>\",\n  \"restaurantName\": \"<string>\",\n  \"restaurantAddress\": \"<string>\",\n  \"restaurantPhoneNumber\": \"<string>\",\n  \"expectedDeliveryDate\": \"<string>\",\n  \"expectedPickupTime\": \"<string>\",\n  \"expectedDeliveryTime\": \"<string>\",\n  \"tips\": \"<double>\",\n  \"tax\": \"<double>\",\n  \"discountAmount\": \"<double>\",\n  \"deliveryFee\": \"<double>\",\n  \"totalOrderCost\": \"<double>\",\n  \"deliveryInstruction\": \"<string>\",\n  \"paymentMethod\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"response\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a7ce14e7-09b8-4b5c-93ed-7b24264ac190",
+          "name": "Delete an order",
+          "request": {
+            "name": "Delete an order",
+            "description": {
+              "content": "Deletes an order identified by its orderId.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orders",
+                ":orderId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "orderId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "38e21fc9-e09f-41f3-be2b-6a4bb629e6d0",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    ":orderId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "orderId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"response\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.shipday.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "848b81d0-1bd4-4e14-994e-df2c9cc85b30",
+    "name": "Shipday Assignment Orders API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Shipday REST API lets you programmatically manage delivery and pickup orders, drivers (carriers), order assignment to your own fleet, and an on-demand delivery network (Uber, DoorDash) for last-mile fulfillment. The API is served over HTTPS and secured with HTTP Basic authentication using your API key.\n\nContact Support:\n Name: Shipday Support",
+      "type": "text/plain"
+    }
+  }
+}

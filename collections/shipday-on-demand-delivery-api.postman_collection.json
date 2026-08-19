@@ -1,0 +1,247 @@
+{
+  "item": [
+    {
+      "id": "f4ac9636-4748-44ee-948c-0c0077f11b0f",
+      "name": "On-Demand Delivery",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d791b3dd-129b-4f8f-9e0f-9571740152ef",
+          "name": "Check on-demand delivery availability",
+          "request": {
+            "name": "Check on-demand delivery availability",
+            "description": {
+              "content": "Returns available third-party delivery providers (e.g. DoorDash, Uber) with fees and timing estimates for a given pickup/delivery pair.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "on-demand",
+                "availability"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"pickupAddress\": \"<string>\",\n  \"deliveryAddress\": \"<string>\",\n  \"deliveryTime\": \"<string>\",\n  \"pickUpTime\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "aa653982-71a4-460a-9d7d-f94ffbcf6c3e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "on-demand",
+                    "availability"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"pickupAddress\": \"<string>\",\n  \"deliveryAddress\": \"<string>\",\n  \"deliveryTime\": \"<string>\",\n  \"pickUpTime\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"string\",\n    \"fee\": 6014.296760275591,\n    \"pickupTime\": \"string\",\n    \"deliveryTime\": \"string\",\n    \"pickupDuration\": 4960,\n    \"deliveryDuration\": 572,\n    \"error\": false,\n    \"errorMessage\": \"string\",\n    \"errorDescription\": \"string\"\n  },\n  {\n    \"name\": \"string\",\n    \"fee\": 570.8401063614709,\n    \"pickupTime\": \"string\",\n    \"deliveryTime\": \"string\",\n    \"pickupDuration\": 3380,\n    \"deliveryDuration\": 4806,\n    \"error\": true,\n    \"errorMessage\": \"string\",\n    \"errorDescription\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e3f1e573-8774-4388-8713-0b25f623f9b1",
+          "name": "Assign an order to an on-demand provider",
+          "request": {
+            "name": "Assign an order to an on-demand provider",
+            "description": {
+              "content": "Assigns an order to a specific third-party delivery service provider (e.g. Uber, DoorDash) for last-mile fulfillment.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "on-demand",
+                "assign"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"orderId\": \"<integer>\",\n  \"tip\": \"<double>\",\n  \"estimateReference\": \"<string>\",\n  \"contactlessDelivery\": false,\n  \"podType\": \"<string>\",\n  \"podTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "69cc58c7-0da9-4f38-9346-62ad79f5a70c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "on-demand",
+                    "assign"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"orderId\": \"<integer>\",\n  \"tip\": \"<double>\",\n  \"estimateReference\": \"<string>\",\n  \"contactlessDelivery\": false,\n  \"podType\": \"<string>\",\n  \"podTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"orderId\": 9770,\n  \"provider\": \"string\",\n  \"trackingUrl\": \"string\",\n  \"fee\": 5699.33767234443,\n  \"status\": \"string\",\n  \"driverName\": \"string\",\n  \"driverPhoneNumber\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.shipday.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c627e8e5-6c68-4f05-9d56-0aea8a2fedd4",
+    "name": "Shipday Assignment On-Demand Delivery API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Shipday REST API lets you programmatically manage delivery and pickup orders, drivers (carriers), order assignment to your own fleet, and an on-demand delivery network (Uber, DoorDash) for last-mile fulfillment. The API is served over HTTPS and secured with HTTP Basic authentication using your API key.\n\nContact Support:\n Name: Shipday Support",
+      "type": "text/plain"
+    }
+  }
+}

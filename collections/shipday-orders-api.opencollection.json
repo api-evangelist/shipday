@@ -1,0 +1,92 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Shipday Assignment Orders API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Orders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve active orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.shipday.com/orders"
+          },
+          "docs": "Returns an array of active order objects for the account."
+        },
+        {
+          "info": {
+            "name": "Insert a delivery order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.shipday.com/orders",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new delivery order."
+        },
+        {
+          "info": {
+            "name": "Edit an order",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.shipday.com/order/edit/:orderId",
+            "params": [
+              {
+                "name": "orderId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the order returned when it was placed."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Edits an existing order identified by its orderId."
+        },
+        {
+          "info": {
+            "name": "Delete an order",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.shipday.com/orders/:orderId",
+            "params": [
+              {
+                "name": "orderId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes an order identified by its orderId."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,318 @@
+{
+  "item": [
+    {
+      "id": "7c8cbb3f-9646-4c7c-ade1-f6a664a9386f",
+      "name": "Drivers",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e9b88951-03f7-4188-b57b-fae190a49071",
+          "name": "Retrieve carriers",
+          "request": {
+            "name": "Retrieve carriers",
+            "description": {
+              "content": "Returns the list of carriers (drivers) on the account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "carriers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "60373e7b-288e-4fd4-91aa-98b2ed2d3d1e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "carriers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 9871,\n    \"name\": \"string\",\n    \"phoneNumber\": \"string\",\n    \"email\": \"string\",\n    \"carrierPhoto\": \"string\",\n    \"isOnShift\": false,\n    \"isActive\": true\n  },\n  {\n    \"id\": 2486,\n    \"name\": \"string\",\n    \"phoneNumber\": \"string\",\n    \"email\": \"string\",\n    \"carrierPhoto\": \"string\",\n    \"isOnShift\": true,\n    \"isActive\": false\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "201dba33-df46-4cd6-9e59-53100d83a858",
+          "name": "Add a carrier",
+          "request": {
+            "name": "Add a carrier",
+            "description": {
+              "content": "Adds a new carrier (driver) to the account and returns an auto-generated password for the driver app login.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "carriers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"phoneNumber\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "84ea9e5b-a57e-417d-a8ff-44956c05d9b4",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "carriers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"phoneNumber\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"carrierId\": 9303,\n  \"email\": \"string\",\n  \"password\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "54dd8f66-6f05-4973-b04a-c4110fa94fce",
+          "name": "Delete a carrier",
+          "request": {
+            "name": "Delete a carrier",
+            "description": {
+              "content": "Removes a carrier (driver) from the account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "carriers",
+                ":carrierId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "carrierId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dcb3fe8b-4d28-46c8-8ee8-037dd4f3e9d6",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "carriers",
+                    ":carrierId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "carrierId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"response\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.shipday.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f01c23e1-52ab-41de-b145-d2df3374e1eb",
+    "name": "Shipday Assignment Drivers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Shipday REST API lets you programmatically manage delivery and pickup orders, drivers (carriers), order assignment to your own fleet, and an on-demand delivery network (Uber, DoorDash) for last-mile fulfillment. The API is served over HTTPS and secured with HTTP Basic authentication using your API key.\n\nContact Support:\n Name: Shipday Support",
+      "type": "text/plain"
+    }
+  }
+}
