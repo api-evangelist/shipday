@@ -139,6 +139,8 @@ apis:
   humanURL: https://docs.shipday.com/reference/shipday-api
   baseURL: https://api.shipday.com
   tags:
+  - Order
+  tags_raw:
   - Orders
   properties:
   - type: OpenAPI
