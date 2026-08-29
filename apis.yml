@@ -7,6 +7,18 @@ description: Shipday is a local delivery management platform for restaurants, re
   orders, manage drivers (carriers), assign orders to your own fleet, and tap a network
   of on-demand delivery providers (Uber, DoorDash) for last-mile fulfillment, with
   webhooks for real-time order and driver-location updates.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: paid
   onboarding: self-serve
