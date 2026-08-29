@@ -1,0 +1,35 @@
+slug: shipday
+provider: Shipday
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Transportation & Logistics
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 2
+edges:
+- tag: Assignment
+  spec_file: shipday-assignment-api-openapi.yml
+  capability_id: BC-2420.10
+  capability_id_l1: BC-2420
+  capability_name: Dispatch Management
+  confidence: 0.85
+  evidence: PUT /orders/assign/{orderId}/{carrierId}  Assign an order to a carrier; DELETE /orders/assign/{orderId}  Unassign
+    an order from a driver
+  reason: The operations assign and unassign delivery orders to drivers/carriers, which is exactly dispatch
+    — assignment of loads and drivers to transport moves.
+- tag: Orders
+  spec_file: shipday-orders-api-openapi.yml
+  capability_id: BC-2420.40
+  capability_id_l1: BC-2420
+  capability_name: Last-Mile Delivery Operations Management
+  confidence: 0.7
+  evidence: POST /orders  insertOrder  Insert a delivery order; GET /orders  retrieveActiveOrders  Retrieve
+    active orders
+  reason: Creation, editing and monitoring of local delivery/pickup orders for last-mile fulfilment; the
+    vendor states the API manages 'delivery and pickup orders ... for last-mile fulfillment'.

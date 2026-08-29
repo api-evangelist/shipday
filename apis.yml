@@ -182,6 +182,9 @@ apis:
   - type: APIReference
     url: https://docs.shipday.com/reference/driver-location-update
 common:
+- type: CapabilityMap
+  url: capabilities/shipday-capability-edges.yml
+  name: Shipday Business Capability Map
 - type: AgenticAccess
   url: agentic-access/shipday-agentic-access.yml
 - type: DomainSecurity
