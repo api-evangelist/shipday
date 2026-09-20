@@ -11,7 +11,7 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 2
+edge_count: 3
 edges:
 - tag: Assignment
   spec_file: shipday-assignment-api-openapi.yml
@@ -23,6 +23,17 @@ edges:
     an order from a driver
   reason: The operations assign and unassign delivery orders to drivers/carriers, which is exactly dispatch
     — assignment of loads and drivers to transport moves.
+- tag: On-Demand Delivery
+  spec_file: shipday-on-demand-delivery-api-openapi.yml
+  capability_id: BC-520.50
+  capability_id_l1: BC-520
+  capability_name: Logistics Operations Management
+  confidence: 0.7
+  evidence: POST /on-demand/availability  Check on-demand delivery availability; POST /on-demand/assign  Assign
+    an order to an on-demand provider
+  reason: Sourcing and tendering deliveries to third-party on-demand carriers (Uber, DoorDash) for last-mile
+    fulfilment — transport execution within Logistics Operations Management.
+  recovered_from: vertical-automotive-mobility-edges.json
 - tag: Orders
   spec_file: shipday-orders-api-openapi.yml
   capability_id: BC-2420.40
