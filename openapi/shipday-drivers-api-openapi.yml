@@ -71,18 +71,6 @@ paths:
                 $ref: '#/components/schemas/SimpleResponse'
 components:
   schemas:
-    AddCarrierResponse:
-      type: object
-      properties:
-        carrierId:
-          type: integer
-        email:
-          type: string
-        password:
-          type: string
-          description: Auto-generated password the carrier should update.
-        message:
-          type: string
     SimpleResponse:
       type: object
       properties:
@@ -106,6 +94,18 @@ components:
         phoneNumber:
           type: string
           description: Phone number, optionally including country code.
+    AddCarrierResponse:
+      type: object
+      properties:
+        carrierId:
+          type: integer
+        email:
+          type: string
+        password:
+          type: string
+          description: Auto-generated password the carrier should update.
+        message:
+          type: string
     Carrier:
       type: object
       properties:

@@ -37,6 +37,12 @@ image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/shipday.pn
 tags:
 - Delivery
 - Logistics
+- Last Mile Delivery
+- Local Delivery
+- Dispatch
+tags_raw:
+- Delivery
+- Logistics
 - Last Mile
 - Local Delivery
 - Dispatch

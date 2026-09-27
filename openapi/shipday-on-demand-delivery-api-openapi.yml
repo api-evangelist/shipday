@@ -58,24 +58,24 @@ paths:
                 $ref: '#/components/schemas/OnDemandDeliveryDetails'
 components:
   schemas:
-    AvailabilityRequest:
+    OnDemandDeliveryDetails:
       type: object
-      required:
-      - pickupAddress
-      - deliveryAddress
       properties:
-        pickupAddress:
+        orderId:
+          type: integer
+        provider:
           type: string
-          description: Pickup address of the order.
-        deliveryAddress:
+        trackingUrl:
           type: string
-          description: Delivery address of the order.
-        deliveryTime:
+        fee:
+          type: number
+          format: double
+        status:
           type: string
-          description: Expected delivery time in ISO 8601 UTC format.
-        pickUpTime:
+        driverName:
           type: string
-          description: Expected pickup time in ISO 8601 UTC format.
+        driverPhoneNumber:
+          type: string
     OnDemandAssignRequest:
       type: object
       required:
@@ -135,24 +135,24 @@ components:
           type: string
         errorDescription:
           type: string
-    OnDemandDeliveryDetails:
+    AvailabilityRequest:
       type: object
+      required:
+      - pickupAddress
+      - deliveryAddress
       properties:
-        orderId:
-          type: integer
-        provider:
+        pickupAddress:
           type: string
-        trackingUrl:
+          description: Pickup address of the order.
+        deliveryAddress:
           type: string
-        fee:
-          type: number
-          format: double
-        status:
+          description: Delivery address of the order.
+        deliveryTime:
           type: string
-        driverName:
+          description: Expected delivery time in ISO 8601 UTC format.
+        pickUpTime:
           type: string
-        driverPhoneNumber:
-          type: string
+          description: Expected pickup time in ISO 8601 UTC format.
   securitySchemes:
     basicAuth:
       type: http
