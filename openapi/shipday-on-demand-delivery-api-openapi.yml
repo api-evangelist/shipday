@@ -58,60 +58,6 @@ paths:
                 $ref: '#/components/schemas/OnDemandDeliveryDetails'
 components:
   schemas:
-    OnDemandDeliveryDetails:
-      type: object
-      properties:
-        orderId:
-          type: integer
-        provider:
-          type: string
-        trackingUrl:
-          type: string
-        fee:
-          type: number
-          format: double
-        status:
-          type: string
-        driverName:
-          type: string
-        driverPhoneNumber:
-          type: string
-    OnDemandAssignRequest:
-      type: object
-      required:
-      - name
-      - orderId
-      properties:
-        name:
-          type: string
-          description: Third-party service provider name (e.g. Uber, DoorDash).
-        orderId:
-          type: integer
-        tip:
-          type: number
-          format: double
-        estimateReference:
-          type: string
-          description: Reference ID from a prior availability estimate.
-        contactlessDelivery:
-          type: boolean
-          default: false
-        podType:
-          type: string
-          enum:
-          - PHOTO
-          - SIGNATURE
-          - PIN
-          - NONE
-        podTypes:
-          type: array
-          items:
-            type: string
-            enum:
-            - PHOTO
-            - SIGNATURE
-            - PIN
-            - NONE
     AvailabilityOption:
       type: object
       properties:
@@ -153,6 +99,60 @@ components:
         pickUpTime:
           type: string
           description: Expected pickup time in ISO 8601 UTC format.
+    OnDemandAssignRequest:
+      type: object
+      required:
+      - name
+      - orderId
+      properties:
+        name:
+          type: string
+          description: Third-party service provider name (e.g. Uber, DoorDash).
+        orderId:
+          type: integer
+        tip:
+          type: number
+          format: double
+        estimateReference:
+          type: string
+          description: Reference ID from a prior availability estimate.
+        contactlessDelivery:
+          type: boolean
+          default: false
+        podType:
+          type: string
+          enum:
+          - PHOTO
+          - SIGNATURE
+          - PIN
+          - NONE
+        podTypes:
+          type: array
+          items:
+            type: string
+            enum:
+            - PHOTO
+            - SIGNATURE
+            - PIN
+            - NONE
+    OnDemandDeliveryDetails:
+      type: object
+      properties:
+        orderId:
+          type: integer
+        provider:
+          type: string
+        trackingUrl:
+          type: string
+        fee:
+          type: number
+          format: double
+        status:
+          type: string
+        driverName:
+          type: string
+        driverPhoneNumber:
+          type: string
   securitySchemes:
     basicAuth:
       type: http

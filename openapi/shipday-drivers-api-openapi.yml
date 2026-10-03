@@ -71,13 +71,6 @@ paths:
                 $ref: '#/components/schemas/SimpleResponse'
 components:
   schemas:
-    SimpleResponse:
-      type: object
-      properties:
-        success:
-          type: boolean
-        response:
-          type: string
     AddCarrierRequest:
       type: object
       required:
@@ -105,6 +98,13 @@ components:
           type: string
           description: Auto-generated password the carrier should update.
         message:
+          type: string
+    SimpleResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        response:
           type: string
     Carrier:
       type: object

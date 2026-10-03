@@ -98,6 +98,108 @@ paths:
                 $ref: '#/components/schemas/SimpleResponse'
 components:
   schemas:
+    SimpleResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        response:
+          type: string
+    Order:
+      type: object
+      properties:
+        orderId:
+          type: integer
+        orderNumber:
+          type: string
+        companyId:
+          type: integer
+        areaId:
+          type: integer
+        customerName:
+          type: string
+        customerAddress:
+          type: string
+        customerPhoneNumber:
+          type: string
+        customerEmail:
+          type: string
+        deliveryLatitude:
+          type: number
+          format: double
+        deliveryLongitude:
+          type: number
+          format: double
+        restaurantName:
+          type: string
+        restaurantAddress:
+          type: string
+        restaurantPhoneNumber:
+          type: string
+        pickupLatitude:
+          type: number
+          format: double
+        pickupLongitude:
+          type: number
+          format: double
+        assignedCarrier:
+          $ref: '#/components/schemas/Carrier'
+        distance:
+          type: number
+          format: double
+        placementTime:
+          type: string
+        expectedPickupTime:
+          type: string
+        expectedDeliveryDate:
+          type: string
+        expectedDeliveryTime:
+          type: string
+        deliveryTime:
+          type: string
+        totalCost:
+          type: number
+          format: double
+        deliveryFee:
+          type: number
+          format: double
+        tip:
+          type: number
+          format: double
+        tax:
+          type: number
+          format: double
+        discountAmount:
+          type: number
+          format: double
+        paymentMethod:
+          type: string
+        orderItems:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrderItem'
+        orderState:
+          type: string
+        trackingLink:
+          type: string
+        deliveryInstruction:
+          type: string
+    OrderItem:
+      type: object
+      properties:
+        name:
+          type: string
+        unitPrice:
+          type: number
+          format: double
+        quantity:
+          type: integer
+        addOns:
+          type: array
+          items:
+            type: string
+        detail:
+          type: string
     EditOrderRequest:
       type: object
       required:
@@ -153,13 +255,35 @@ components:
           enum:
           - cash
           - credit_card
-    SimpleResponse:
+    InsertOrderResponse:
       type: object
       properties:
         success:
           type: boolean
+          description: Indicates the success of the order insert.
         response:
           type: string
+          description: Message on successful creation of the order.
+        orderId:
+          type: integer
+          description: Unique identifier for the created order.
+    Carrier:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        phoneNumber:
+          type: string
+        email:
+          type: string
+        carrierPhoto:
+          type: string
+        isOnShift:
+          type: boolean
+        isActive:
+          type: boolean
     InsertOrderRequest:
       type: object
       required:
@@ -251,130 +375,6 @@ components:
           type: integer
         isCatering:
           type: boolean
-    InsertOrderResponse:
-      type: object
-      properties:
-        success:
-          type: boolean
-          description: Indicates the success of the order insert.
-        response:
-          type: string
-          description: Message on successful creation of the order.
-        orderId:
-          type: integer
-          description: Unique identifier for the created order.
-    OrderItem:
-      type: object
-      properties:
-        name:
-          type: string
-        unitPrice:
-          type: number
-          format: double
-        quantity:
-          type: integer
-        addOns:
-          type: array
-          items:
-            type: string
-        detail:
-          type: string
-    Carrier:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        phoneNumber:
-          type: string
-        email:
-          type: string
-        carrierPhoto:
-          type: string
-        isOnShift:
-          type: boolean
-        isActive:
-          type: boolean
-    Order:
-      type: object
-      properties:
-        orderId:
-          type: integer
-        orderNumber:
-          type: string
-        companyId:
-          type: integer
-        areaId:
-          type: integer
-        customerName:
-          type: string
-        customerAddress:
-          type: string
-        customerPhoneNumber:
-          type: string
-        customerEmail:
-          type: string
-        deliveryLatitude:
-          type: number
-          format: double
-        deliveryLongitude:
-          type: number
-          format: double
-        restaurantName:
-          type: string
-        restaurantAddress:
-          type: string
-        restaurantPhoneNumber:
-          type: string
-        pickupLatitude:
-          type: number
-          format: double
-        pickupLongitude:
-          type: number
-          format: double
-        assignedCarrier:
-          $ref: '#/components/schemas/Carrier'
-        distance:
-          type: number
-          format: double
-        placementTime:
-          type: string
-        expectedPickupTime:
-          type: string
-        expectedDeliveryDate:
-          type: string
-        expectedDeliveryTime:
-          type: string
-        deliveryTime:
-          type: string
-        totalCost:
-          type: number
-          format: double
-        deliveryFee:
-          type: number
-          format: double
-        tip:
-          type: number
-          format: double
-        tax:
-          type: number
-          format: double
-        discountAmount:
-          type: number
-          format: double
-        paymentMethod:
-          type: string
-        orderItems:
-          type: array
-          items:
-            $ref: '#/components/schemas/OrderItem'
-        orderState:
-          type: string
-        trackingLink:
-          type: string
-        deliveryInstruction:
-          type: string
   securitySchemes:
     basicAuth:
       type: http
