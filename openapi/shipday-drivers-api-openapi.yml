@@ -71,22 +71,6 @@ paths:
                 $ref: '#/components/schemas/SimpleResponse'
 components:
   schemas:
-    AddCarrierRequest:
-      type: object
-      required:
-      - name
-      - email
-      - phoneNumber
-      properties:
-        name:
-          type: string
-          description: Full name of the carrier (driver).
-        email:
-          type: string
-          description: Valid email address of the carrier.
-        phoneNumber:
-          type: string
-          description: Phone number, optionally including country code.
     AddCarrierResponse:
       type: object
       properties:
@@ -123,6 +107,22 @@ components:
           type: boolean
         isActive:
           type: boolean
+    AddCarrierRequest:
+      type: object
+      required:
+      - name
+      - email
+      - phoneNumber
+      properties:
+        name:
+          type: string
+          description: Full name of the carrier (driver).
+        email:
+          type: string
+          description: Valid email address of the carrier.
+        phoneNumber:
+          type: string
+          description: Phone number, optionally including country code.
   securitySchemes:
     basicAuth:
       type: http

@@ -58,47 +58,6 @@ paths:
                 $ref: '#/components/schemas/OnDemandDeliveryDetails'
 components:
   schemas:
-    AvailabilityOption:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Provider name (e.g. DoorDash, Uber, MotoClick).
-        fee:
-          type: number
-          format: double
-        pickupTime:
-          type: string
-        deliveryTime:
-          type: string
-        pickupDuration:
-          type: integer
-        deliveryDuration:
-          type: integer
-        error:
-          type: boolean
-        errorMessage:
-          type: string
-        errorDescription:
-          type: string
-    AvailabilityRequest:
-      type: object
-      required:
-      - pickupAddress
-      - deliveryAddress
-      properties:
-        pickupAddress:
-          type: string
-          description: Pickup address of the order.
-        deliveryAddress:
-          type: string
-          description: Delivery address of the order.
-        deliveryTime:
-          type: string
-          description: Expected delivery time in ISO 8601 UTC format.
-        pickUpTime:
-          type: string
-          description: Expected pickup time in ISO 8601 UTC format.
     OnDemandAssignRequest:
       type: object
       required:
@@ -135,6 +94,29 @@ components:
             - SIGNATURE
             - PIN
             - NONE
+    AvailabilityOption:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Provider name (e.g. DoorDash, Uber, MotoClick).
+        fee:
+          type: number
+          format: double
+        pickupTime:
+          type: string
+        deliveryTime:
+          type: string
+        pickupDuration:
+          type: integer
+        deliveryDuration:
+          type: integer
+        error:
+          type: boolean
+        errorMessage:
+          type: string
+        errorDescription:
+          type: string
     OnDemandDeliveryDetails:
       type: object
       properties:
@@ -153,6 +135,24 @@ components:
           type: string
         driverPhoneNumber:
           type: string
+    AvailabilityRequest:
+      type: object
+      required:
+      - pickupAddress
+      - deliveryAddress
+      properties:
+        pickupAddress:
+          type: string
+          description: Pickup address of the order.
+        deliveryAddress:
+          type: string
+          description: Delivery address of the order.
+        deliveryTime:
+          type: string
+          description: Expected delivery time in ISO 8601 UTC format.
+        pickUpTime:
+          type: string
+          description: Expected pickup time in ISO 8601 UTC format.
   securitySchemes:
     basicAuth:
       type: http
