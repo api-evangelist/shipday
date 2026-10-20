@@ -1,5 +1,9 @@
-generated: '2026-10-14'
+generated: '2026-10-20'
 method: searched
+source:
+- toast/integrations/toast-integration-edges.yml
+- https://zapier.com/apps/shipday/integrations
+- https://composio.dev/toolkits/shipday
 checked:
 - https://github.com/PipedreamHQ/pipedream/tree/94800dd6de6640b942c65ea7ee655f71ac56d438/components/
 - https://github.com/PipedreamHQ/pipedream/tree/d5872355ef27b4efa769f05352f2820c299a456e/components/
@@ -7,8 +11,41 @@ checked:
 - shopify/integrations/shopify-integration-edges.yml
 - toast/integrations/toast-integration-edges.yml
 - wordpress/integrations/wordpress-integration-edges.yml
-source:
-- toast/integrations/toast-integration-edges.yml
+- https://composio.dev/toolkits/shipday
+- https://monid.ai/tools/shipday
+- https://n8n.io/integrations/shipday/
+- https://zapier.com/apps/shipday/integrations
+summary: null
+marketplace_apps:
+- marketplace: zapier
+  channel: ipaas-listing
+  app: shipday
+  url: https://zapier.com/apps/shipday/integrations
+  external_url: https://dispatch.shipday.com/
+  partner_tier: BRONZE
+  triggers: []
+  actions:
+  - key: create_order
+    label: Create Order
+  searches: []
+- marketplace: composio
+  channel: agent-gateway
+  app: shipday
+  url: https://composio.dev/toolkits/shipday
+  identity: action-prefix
+  actions:
+  - key: SHIPDAY_ADD_A_CARRIER
+  - key: SHIPDAY_CHECK_ON_DEMAND_AVAILABILITY
+  - key: SHIPDAY_EDIT_DELIVERY_ORDER
+  - key: SHIPDAY_GET_ON_DEMAND_ESTIMATE
+  - key: SHIPDAY_GET_ON_DEMAND_SERVICES
+  - key: SHIPDAY_INSERT_ORDER
+  - key: SHIPDAY_ORDER_READY_TO_PICKUP
+  - key: SHIPDAY_QUERY_DELIVERY_ORDERS
+  - key: SHIPDAY_RETRIEVE_ACTIVE_ORDERS
+  - key: SHIPDAY_RETRIEVE_CARRIERS
+  - key: SHIPDAY_RETRIEVE_ORDER_DETAILS
+  - key: SHIPDAY_UNASSIGN_ORDER_FROM_DRIVER
 edges:
 - partner_name: Shopify (own)
   partner: shopify
@@ -113,3 +150,425 @@ edges:
     builder: Pipedream repo (component)
   detected_by: sweep-workflow-automation.py
   first_seen: '2026-10-15'
+- partner_name: Jotform
+  partner: jotform
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/shipday/integrations/jotform
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: http://www.jotform.com/
+- partner_name: WooCommerce
+  partner: woocommerce
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/shipday/integrations/woocommerce
+  direction: third-party
+  category: eCommerce
+  partner_url: https://woocommerce.com/products/woocommerce-zapier/?utm_source=zapier&utm_medium=website&utm_campaign=integration
+- partner_name: Wix
+  partner: wix
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/shipday/integrations/wix
+  direction: third-party
+  category: Website Builders
+  partner_url: https://www.wix.com/
+- partner_name: Acuity Scheduling
+  partner: acuity-scheduling
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/shipday/integrations/acuity-scheduling
+  direction: third-party
+  category: Scheduling & Booking
+  partner_url: https://acuityscheduling.com/?utm_source=zapier.com&utm_medium=referral&utm_campaign=integration-page
+- partner_name: Google Forms
+  partner: google-forms
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/shipday/integrations/google-forms
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: http://google.com/
+- partner_name: Ecwid by Lightspeed
+  partner: ecwid
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/shipday/integrations/ecwid
+  direction: third-party
+  category: eCommerce
+  partner_url: https://www.ecwid.com/
+- partner_name: Shopify
+  partner: shopify
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/shipday/integrations/shopify
+  direction: third-party
+  category: eCommerce
+  partner_url: https://www.shopify.com/
+- partner_name: Square
+  partner: square
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/shipday/integrations/square
+  direction: third-party
+  category: eCommerce
+  partner_url: https://squareup.com/t/cmtp_performance/pr_developers/d_partnerships/p_zapier/?route=
+- partner_name: Squarespace Forms
+  partner: squarespace
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/shipday/integrations/squarespace-forms
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: https://www.squarespace.com/
+- partner_name: QuickBooks Online
+  partner: quickbooks
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/shipday/integrations/quickbooks
+  direction: third-party
+  category: Accounting
+  partner_url: http://intuit.com/
+- partner_name: Gravity Forms
+  partner: gravity-forms
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/shipday/integrations/gravity-forms
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: https://www.gravityforms.com/?utm_campaign=partners&utm_source=zapier-listing-learn-more&utm_medium=free-placement
+- partner_name: GoodBarber eCommerce
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/shipday/integrations/goodbarber-ecommerce
+  direction: third-party
+  category: App Builder
+  partner_url: https://www.goodbarber.com/
+- partner_name: Zoho Forms
+  partner: zoho-forms
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/shipday/integrations/zoho-forms
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: https://go.zoho.com/LL2
+- partner_name: Loyverse
+  partner: loyverse
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/shipday/integrations/loyverse
+  direction: third-party
+  category: Sales & CRM
+  partner_url: https://zapier.com/loyverse.com
+- partner_name: Odoo ERP Self Hosted
+  partner: odoo
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/shipday/integrations/openerp
+  direction: third-party
+  category: CRM (Customer Relationship Management)
+  partner_url: https://www.odoo.com/
+- partner_name: Google Sheets
+  partner: google-sheets
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/shipday/integrations/google-sheets
+  direction: third-party
+  category: Google
+  partner_url: http://sheets.google.com/
+- partner_name: monday.com
+  partner: monday-com
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/shipday/integrations/monday
+  direction: third-party
+  category: Project Management
+  partner_url: https://monday.com/
+- partner_name: Mailparser
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/shipday/integrations/mailparser
+  direction: third-party
+  category: Email
+  partner_url: https://mailparser.io/
+- partner_name: Booqable
+  partner: booqable
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/shipday/integrations/booqable
+  direction: third-party
+  category: CRM (Customer Relationship Management)
+  partner_url: https://booqable.com/
+- partner_name: ShipStation
+  partner: shipstation
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/shipday/integrations/shipstation
+  direction: third-party
+  category: eCommerce
+  partner_url: http://www.shipstation.com/
+- partner_name: WPForms
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/shipday/integrations/wpforms
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: https://wpforms.com/
+- partner_name: BigCommerce
+  partner: bigcommerce
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/shipday/integrations/bigcommerce
+  direction: third-party
+  category: eCommerce
+  partner_url: http://www.bigcommerce.com/
+- partner_name: Zoho Inventory
+  partner: zoho-inventory
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/shipday/integrations/zoho-inventory
+  direction: third-party
+  category: eCommerce
+  partner_url: https://go.zoho.com/ZGz
+- partner_name: WordPress
+  partner: wordpress
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/shipday/integrations/wordpress
+  direction: third-party
+  category: Website Builders
+  partner_url: https://wordpress.org/
+- partner_name: Paperform
+  partner: paperform
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/shipday/integrations/paperform
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: https://paperform.co/?utm_medium=partners&utm_source=Zapier&utm_campaign=integration_partners&utm_content=integration_page
+- partner_name: Erply
+  partner: erply
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/shipday/integrations/erply-point-of-sale-inventory-ma
+  direction: third-party
+  category: Sales & CRM
+  partner_url: https://zapier.com/erply.com
+- partner_name: Manychat
+  partner: manychat
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/shipday/integrations/manychat
+  direction: third-party
+  category: Social Media Marketing
+  partner_url: https://manychat.com/
+- partner_name: Cognito Forms
+  partner: cognito-forms
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/shipday/integrations/cognito-forms
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: https://www.cognitoforms.com/
+- partner_name: MySQL
+  partner: mysql
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/shipday/integrations/mysql
+  direction: third-party
+  category: Databases
+  partner_url: https://www.mysql.com/
+- partner_name: Salla
+  partner: salla
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/shipday/integrations/salla
+  direction: third-party
+  category: eCommerce
+  partner_url: https://s.salla.sa/
+templates:
+- title: Enter orders from Jotform into Shipday
+  url: https://zapier.com/apps/jotform/integrations/shipday/132521/enter-orders-from-jotform-into-shipday
+  apps:
+  - jotform
+  - shipday
+- title: Add a new order in Shipday dispatch when a new row is added to Google Sheets
+  url: https://zapier.com/apps/google-sheets/integrations/shipday/131452/add-a-new-order-in-shipday-dispatch-when-a-new-row-is-added-to-google-sheets
+  apps:
+  - google-sheets
+  - shipday
+- title: Add a new order to Shipday dispatch for new Typeform entries
+  url: https://zapier.com/apps/shipday/integrations/typeform/131454/add-a-new-order-to-shipday-dispatch-for-new-typeform-entries
+  apps:
+  - typeform
+  - shipday
+- title: Create Shipday delivery orders from Squarespace Forms submissions
+  url: https://zapier.com/apps/shipday/integrations/squarespace-forms/132519/create-shipday-delivery-orders-from-squarespace-forms-submissions
+  apps:
+  - squarespace-forms
+  - shipday
+- title: Insert WooCommerce orders into the Shipday dispatch system
+  url: https://zapier.com/apps/shipday/integrations/woocommerce/132526/insert-woocommerce-orders-into-the-shipday-dispatch-system
+  apps:
+  - woocommerce
+  - shipday
+- title: Create delivery orders in Shipday from new QuickBooks invoices
+  url: https://zapier.com/apps/quickbooks/integrations/shipday/132535/create-delivery-orders-in-shipday-from-new-quickbooks-invoices
+  apps:
+  - quickbooks
+  - shipday
+- title: Create delivery orders Shipday from new orders in BigCommerce
+  url: https://zapier.com/apps/bigcommerce/integrations/shipday/132565/create-delivery-orders-shipday-from-new-orders-in-bigcommerce
+  apps:
+  - bigcommerce
+  - shipday
+- title: Make delivery orders in Shipday from new Wufoo form entries
+  url: https://zapier.com/apps/shipday/integrations/wufoo/132572/make-delivery-orders-in-shipday-from-new-wufoo-form-entries
+  apps:
+  - wufoo
+  - shipday
+- title: Create Shipday delivery orders from new Zoho Forms entries
+  url: https://zapier.com/apps/shipday/integrations/zoho-forms/132583/create-shipday-delivery-orders-from-new-zoho-forms-entries
+  apps:
+  - zoho-forms
+  - shipday
+- title: Create Shipday dispatch orders from new ShipStation orders
+  url: https://zapier.com/apps/shipday/integrations/shipstation/132588/create-shipday-dispatch-orders-from-new-shipstation-orders
+  apps:
+  - shipstation
+  - shipday
+- title: Add new outgoing orders in WMS-Lite to Shipday
+  url: https://zapier.com/apps/shipday/integrations/wms-lite/538611/add-new-outgoing-orders-in-wms-lite-to-shipday
+  apps:
+  - wms-lite
+  - shipday
+- title: Create Shipday orders from new or updated Google Sheets rows
+  url: https://zapier.com/apps/google-sheets/integrations/shipday/1237249/create-shipday-orders-from-new-or-updated-google-sheets-rows
+  apps:
+  - google-sheets
+  - shipday
+template_total: 62
