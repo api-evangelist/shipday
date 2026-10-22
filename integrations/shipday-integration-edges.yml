@@ -15,6 +15,7 @@ checked:
 - https://monid.ai/tools/shipday
 - https://n8n.io/integrations/shipday/
 - https://zapier.com/apps/shipday/integrations
+- wix/integrations/wix-integration-edges.yml
 summary: null
 marketplace_apps:
 - marketplace: zapier
@@ -47,58 +48,6 @@ marketplace_apps:
   - key: SHIPDAY_RETRIEVE_ORDER_DETAILS
   - key: SHIPDAY_UNASSIGN_ORDER_FROM_DRIVER
 edges:
-- partner_name: Shopify (own)
-  partner: shopify
-  partner_match: mirror
-  mirror_match: domain
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://apps.shopify.com/shipday
-  mirror_of: shopify/integrations/shopify-integration-edges.yml
-  apps:
-  - 'Shipday : Delivery + Pickup'
-  listing_count: 1
-  detected: '2026-10-15'
-  detected_by: mirror-platform-listings.py
-  publisher_verified:
-  - Built for Shopify
-- partner_name: Toast (own)
-  partner: toast
-  partner_match: mirror
-  mirror_match: domain
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://pos.toasttab.com/partners/directory/shipday
-  mirror_of: toast/integrations/toast-integration-edges.yml
-  apps:
-  - Shipday
-  listing_count: 1
-  detected: '2026-10-14'
-  detected_by: mirror-platform-listings.py
-  category: Delivery
-- partner_name: WordPress (own)
-  partner: wordpress
-  partner_match: mirror
-  mirror_match: domain
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://wordpress.org/plugins/shipday-for-woocommerce/
-  mirror_of: wordpress/integrations/wordpress-integration-edges.yml
-  apps:
-  - Shipday Local Delivery for WooCommerce
-  listing_count: 1
-  detected: '2026-10-15'
-  detected_by: mirror-platform-listings.py
-  category: WordPress plugin
 - partner_name: Zapier
   partner: zapier
   partner_match: aggregator
@@ -510,6 +459,75 @@ edges:
   direction: third-party
   category: eCommerce
   partner_url: https://s.salla.sa/
+- partner_name: Shopify (own)
+  partner: shopify
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://apps.shopify.com/shipday
+  mirror_of: shopify/integrations/shopify-integration-edges.yml
+  apps:
+  - 'Shipday : Delivery + Pickup'
+  listing_count: 1
+  detected: '2026-10-15'
+  detected_by: mirror-platform-listings.py
+  publisher_verified:
+  - Built for Shopify
+- partner_name: Toast (own)
+  partner: toast
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://pos.toasttab.com/partners/directory/shipday
+  mirror_of: toast/integrations/toast-integration-edges.yml
+  apps:
+  - Shipday
+  listing_count: 1
+  detected: '2026-10-14'
+  detected_by: mirror-platform-listings.py
+  category: Delivery
+- partner_name: WordPress (own)
+  partner: wordpress
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://wordpress.org/plugins/shipday-for-woocommerce/
+  mirror_of: wordpress/integrations/wordpress-integration-edges.yml
+  apps:
+  - Shipday Local Delivery for WooCommerce
+  listing_count: 1
+  detected: '2026-10-15'
+  detected_by: mirror-platform-listings.py
+  category: WordPress plugin
+- partner_name: Wix (own)
+  partner: wix
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://www.wix.com/app-market/developer/shipday
+  mirror_of: wix/integrations/wix-integration-edges.yml
+  apps:
+  - Local Delivery With Shipday
+  listing_count: 1
+  detected: '2026-10-22'
+  detected_by: mirror-platform-listings.py
+  category: Shipping & Delivery
 templates:
 - title: Enter orders from Jotform into Shipday
   url: https://zapier.com/apps/jotform/integrations/shipday/132521/enter-orders-from-jotform-into-shipday

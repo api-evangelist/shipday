@@ -138,44 +138,6 @@
   relationship: ipaas-bridge
   status: pending-generation
   arazzo: null
-- slug: shipday-shopify-own
-  label: Shopify (own)
-  partner: shopify
-  partner_name: Shopify (own)
-  type: marketplace
-  marketplace: own
-  channel: partner-built
-  evidence: https://apps.shopify.com/shipday
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
-- slug: shipday-toast-own
-  label: Toast (own)
-  partner: toast
-  partner_name: Toast (own)
-  category: Delivery
-  type: marketplace
-  marketplace: own
-  channel: partner-built
-  evidence: https://pos.toasttab.com/partners/directory/shipday
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
-- slug: shipday-wordpress-own
-  label: WordPress (own)
-  partner: wordpress
-  partner_name: WordPress (own)
-  category: WordPress plugin
-  type: marketplace
-  marketplace: own
-  channel: partner-built
-  evidence: https://wordpress.org/plugins/shipday-for-woocommerce/
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
 - slug: shipday-zapier
   label: Zapier
   partner: zapier
@@ -509,4 +471,55 @@
   source: edge
   relationship: ipaas-bridge
   status: pending-generation
+  arazzo: null
+- slug: shipday-shopify-own
+  label: Shopify (own)
+  partner: shopify
+  partner_name: Shopify (own)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://apps.shopify.com/shipday
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: shipday-toast-own
+  label: Toast (own)
+  partner: toast
+  partner_name: Toast (own)
+  category: Delivery
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://pos.toasttab.com/partners/directory/shipday
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: shipday-wordpress-own
+  label: WordPress (own)
+  partner: wordpress
+  partner_name: WordPress (own)
+  category: WordPress plugin
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://wordpress.org/plugins/shipday-for-woocommerce/
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: shipday-wix-own
+  label: Wix (own)
+  partner: wix
+  partner_name: Wix (own)
+  category: Shipping & Delivery
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://www.wix.com/app-market/developer/shipday
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
   arazzo: null
