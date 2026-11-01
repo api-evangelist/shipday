@@ -1,4 +1,4 @@
-# Shipday (shipday)
+# Shipday
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,137 +66,122 @@
 
 Shipday is a local delivery management platform for restaurants, retailers, and on-demand businesses. Its REST API lets you create and track delivery and pickup orders, manage drivers (carriers), assign orders to your own fleet, and tap a network of on-demand delivery providers (Uber, DoorDash) for last-mile fulfillment, with webhooks for real-time order and driver-location updates.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/shipday/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/shipday/refs/heads/main/apis.yml)
+**Areas:** Delivery · Logistics · Last Mile Delivery · Local Delivery · Dispatch
 
-## Tags
+## Shipday on APIs.io
 
-- Delivery
-- Logistics
-- Last Mile
-- Local Delivery
-- Dispatch
+Everything profiled for Shipday is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/shipday/](https://apis.io/providers/shipday/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (4)
 
-- **Created:** 2026-06-21
-- **Modified:** 2026-06-21
+- [Shipday Assignment API](https://apis.io/apis/shipday/shipday-assignment-api/) — The Assignment API from Shipday — 2 operation(s) for assignment.
+- [Shipday Drivers API](https://apis.io/apis/shipday/shipday-drivers-api/) — The Drivers API from Shipday — 2 operation(s) for drivers.
+- [Shipday On-Demand Delivery API](https://apis.io/apis/shipday/shipday-on-demand-delivery-api/) — The On-Demand Delivery API from Shipday — 2 operation(s) for on-demand delivery.
+- [Shipday Orders API](https://apis.io/apis/shipday/shipday-orders-api/) — The Orders API from Shipday — 3 operation(s) for orders.
 
-## APIs
+### Published properties
 
-### Shipday Orders API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-Create, list, edit, and delete delivery and pickup orders. Insert a delivery order with customer, restaurant/pickup, and cost details; retrieve active orders; edit an existing order by ID; and manage pickup orders.
+#### Agentic access (1)
 
-- **Human URL:** [https://docs.shipday.com/reference/shipday-api](https://docs.shipday.com/reference/shipday-api)
-- **Base URL:** `https://api.shipday.com`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Shipday Agentic Access](https://apis.io/agentic-access/shipday/shipday-agentic-access/)
 
-- Orders
-- Deliveries
-- Pickup
+#### Collections (5)
 
-#### Properties
+Postman and Open Collection request collections.
 
-- [Documentation](https://docs.shipday.com/reference/insert-delivery-order)
-- [API Reference](https://docs.shipday.com/reference/shipday-api)
-- [OpenAPI](openapi/shipday-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/shipday.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/shipday.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Shipday API](https://apis.io/collections/shipday/open-shipday/)
+- [Shipday Assignment API](https://apis.io/collections/shipday/open-shipday-assignment-api/)
+- [Shipday Assignment Drivers API](https://apis.io/collections/shipday/open-shipday-drivers-api/)
+- [Shipday Assignment On-Demand Delivery API](https://apis.io/collections/shipday/open-shipday-on-demand-delivery-api/)
+- [Shipday Assignment Orders API](https://apis.io/collections/shipday/open-shipday-orders-api/)
 
-### Shipday Drivers / Carriers API
+#### Security (2)
 
-Add carriers (drivers) to your account, retrieve your carrier roster, and remove carriers. Adding a carrier returns an auto-generated password for the driver app login.
+Authentication, trust centre, and vulnerability disclosure.
 
-- **Human URL:** [https://docs.shipday.com/reference/add-a-carrier-1](https://docs.shipday.com/reference/add-a-carrier-1)
-- **Base URL:** `https://api.shipday.com`
+- [Shipday Authentication](https://apis.io/security/shipday/shipday-authentication/)
+- [Shipday Domain Security](https://apis.io/security/shipday/shipday-domain-security/)
 
-#### Tags
+#### Plans and pricing (1)
 
-- Drivers
-- Carriers
-- Fleet
+Published plans, tiers and prices.
 
-#### Properties
+- [Shipday Plans Pricing](https://apis.io/plans/shipday/shipday-plans-pricing/)
 
-- [Documentation](https://docs.shipday.com/reference/add-a-carrier-1)
-- [API Reference](https://docs.shipday.com/reference/retrieve-carriers)
-- [OpenAPI](openapi/shipday-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/shipday.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/shipday.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Rate limits (1)
 
-### Shipday Order Assignment API
+Published request limits.
 
-Assign an order to a specific carrier in your own fleet by order ID and carrier ID, and unassign an order from a driver when dispatch changes.
+- [Shipday Rate Limits](https://apis.io/rate-limits/shipday/shipday-rate-limits/)
 
-- **Human URL:** [https://docs.shipday.com/reference/assign-order](https://docs.shipday.com/reference/assign-order)
-- **Base URL:** `https://api.shipday.com`
+#### FinOps (1)
 
-#### Tags
+What the API costs to run, by operation.
 
-- Assignment
-- Dispatch
-- Drivers
+- [Shipday Finops](https://apis.io/finops/shipday/shipday-finops/)
 
-#### Properties
+## Where to find this API
 
-- [Documentation](https://docs.shipday.com/reference/assign-order)
-- [API Reference](https://docs.shipday.com/reference/unassign-order-from-driver-1)
-- [OpenAPI](openapi/shipday-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/shipday.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/shipday.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-### Shipday On-Demand Delivery API
-
-Check on-demand delivery availability and pricing across third-party networks (DoorDash, Uber) for a pickup/delivery pair, then assign the order to a chosen provider for last-mile fulfillment.
-
-- **Human URL:** [https://docs.shipday.com/reference/availability-1](https://docs.shipday.com/reference/availability-1)
-- **Base URL:** `https://api.shipday.com`
-
-#### Tags
-
-- On-Demand
-- Uber
-- DoorDash
-
-#### Properties
-
-- [Documentation](https://docs.shipday.com/reference/availability-1)
-- [API Reference](https://docs.shipday.com/reference/assign)
-- [OpenAPI](openapi/shipday-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/shipday.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/shipday.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Shipday Webhooks API
-
-Subscribe to real-time order status events (ORDER_INSERTED, ORDER_ASSIGNED, ORDER_ONTHEWAY, ORDER_COMPLETED, ORDER_FAILED, and more) delivered via HTTP POST, plus a beta driver-location webhook streaming live driver coordinates.
-
-- **Human URL:** [https://docs.shipday.com/reference/order-status-update-2](https://docs.shipday.com/reference/order-status-update-2)
-- **Base URL:** `https://api.shipday.com`
-
-#### Tags
-
-- Webhooks
-- Events
-- Tracking
-
-#### Properties
-
-- [Documentation](https://docs.shipday.com/reference/order-status-update-2)
-- [API Reference](https://docs.shipday.com/reference/driver-location-update)
-- [OpenAPI](openapi/shipday-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-
-## Common Properties
-
-- [GitHub Organization](https://github.com/shipday)
-- [LinkedIn](https://www.linkedin.com/company/shipday)
 - [Website](https://www.shipday.com)
 - [Documentation](https://docs.shipday.com)
-- [Plans](plans/shipday-plans-pricing.yml)
-- [Rate Limits](rate-limits/shipday-rate-limits.yml)
-- [Fin Ops](finops/shipday-finops.yml)
+- [Blog](https://www.shipday.com/blog)
+- [GitHub](https://github.com/shipday)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 24.8** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 48.2 |
+| Contract governance | 0.0 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 23.8 |
+| Access clarity | 7.9 |
+
+**Agent readiness 17.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 11.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/shipday/](https://apis.io/providers/shipday/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Shipday: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/shipday/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
